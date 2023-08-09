@@ -13,7 +13,7 @@ class Reviews(db.Model, UserMixin):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     game_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('games.id')), nullable=False)
     content = db.Column(db.Text, nullable=False)
-    stars = db.Column(db.Integer, nullable=False)
+    stars = db.Column(db.Integer, nullable=True)
     created_at = db.Column(db.Date)
 
     users = db.relationship(
