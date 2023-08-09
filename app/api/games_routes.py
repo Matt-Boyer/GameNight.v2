@@ -14,6 +14,7 @@ engine = create_engine(db_url)
 SessionFactory = sessionmaker(bind=engine)
 session = SessionFactory()
 
-@games_routes.route('/filtered/')
+@games_routes.route('/method/<int:methodId>/category/<int:categoryId>')
 def filtered_games():
-    games = Games.query.filter(User.id ==id)
+    games = Games.query.filter()
+    return [game.to_dict() for game in games]
