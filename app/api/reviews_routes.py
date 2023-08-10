@@ -57,6 +57,8 @@ def edit_review(gameId):
 @login_required
 def single_review(gameId):
     review = Reviews.query.filter(Reviews.user_id == current_user.id, Reviews.game_id == gameId).first()
+    if review == None:
+        return {"Message":"Review does not exist"}
     return review.to_dict()
 
 @reviews_routes.route('/<int:gameId>')

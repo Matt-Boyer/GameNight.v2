@@ -23,6 +23,9 @@ function LandingPage() {
             <button onClick={()=>{
                 history.push('/deletereview/1')
             }}>DeleteReview</button>
+            <button onClick={()=>{
+                history.push('/cart/items')
+            }}>Cart</button>
         </div>
     )
 }

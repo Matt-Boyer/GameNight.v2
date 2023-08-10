@@ -3,9 +3,10 @@ import thunk from 'redux-thunk';
 import session from './session'
 import games from './games'
 import reviews from './reviews'
+import cart from './cart'
 
 const rootReducer = combineReducers({
-  session,games,reviews
+  session,games,reviews,cart
 });
 
 
