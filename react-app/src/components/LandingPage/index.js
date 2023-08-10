@@ -17,6 +17,12 @@ function LandingPage() {
             <button onClick={()=>{
                 history.push('/reviewform/1')
             }}>ReviewForm</button>
+            <button onClick={()=>{
+                history.push('/editreview/1')
+            }}>EditReview</button>
+            <button onClick={()=>{
+                history.push('/deletereview/1')
+            }}>DeleteReview</button>
         </div>
     )
 }

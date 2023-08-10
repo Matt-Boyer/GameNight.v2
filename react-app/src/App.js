@@ -9,6 +9,8 @@ import LandingPage from "./components/LandingPage";
 import FilteredGames from "./components/FilteredGames";
 import SingleGame from "./components/SingleGame";
 import ReviewForm from "./components/ReviewForm";
+import EditReview from "./components/EditReview";
+import DeleteReview from "./components/DeleteReview";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +26,12 @@ function App() {
         <Switch>
           <Route exact path="/games/filtered" >
             <FilteredGames />
+          </Route>
+          <Route exact path="/deletereview/:gameId" >
+            <DeleteReview />
+          </Route>
+          <Route exact path="/editreview/:gameId" >
+            <EditReview/>
           </Route>
           <Route exact path="/reviewform/:gameId" >
             <ReviewForm />
