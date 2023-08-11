@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
+import FilteredGames from '../FilteredGames'
 import './landingpage.css'
 
 
@@ -7,6 +8,10 @@ function LandingPage() {
     const history = useHistory()
 
     return (
+        <div>
+            <div>
+                <FilteredGames />
+            </div>
         <div>
             <button onClick={()=>{
                 history.push('/games/filtered')
@@ -26,6 +31,10 @@ function LandingPage() {
             <button onClick={()=>{
                 history.push('/cart/items')
             }}>Cart</button>
+            <button onClick={()=>{
+                history.push('/game/cart/add/1')
+            }}>AddItemCart</button>
+        </div>
         </div>
     )
 }

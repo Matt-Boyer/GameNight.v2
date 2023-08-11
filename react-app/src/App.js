@@ -12,6 +12,7 @@ import ReviewForm from "./components/ReviewForm";
 import EditReview from "./components/EditReview";
 import DeleteReview from "./components/DeleteReview";
 import Cart from "./components/Cart";
+import AddItemCart from "./components/AddItemCart";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,9 @@ function App() {
         <Switch>
           <Route exact path="/games/filtered" >
             <FilteredGames />
+          </Route>
+          <Route exact path="/game/cart/add/:gameId" >
+            <AddItemCart />
           </Route>
           <Route exact path="/cart/items" >
             <Cart />

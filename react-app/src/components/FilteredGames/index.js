@@ -14,7 +14,6 @@ function FilteredGames() {
 
     const onSubmit = async() => {
         let err = await dispatch(thunkFilteredGames(category,method))
-        console.log('this is err',err)
     }
 
     //NEED TO ACCOUNT FOR IF THEY DONT SELECT ANYTHING ON FILTER MAKE ALL BE SELECTED OR SEOMTHING LIKE THAT
@@ -23,6 +22,12 @@ function FilteredGames() {
     }, [])
 
     return (
+        <div>
+            <div>
+                <div id='innerdivsearchbarforgameslandingpage'>
+                    <input id='searchbarforgameslandingpage' type="text" placeholder='Search by game name' />
+                </div>
+            </div>
         <div className='maindivholdingfilter'>
             <div>
                 <label htmlFor="Adult/Drinking Games">Adult/Drinking Games:</label>
@@ -120,6 +125,7 @@ function FilteredGames() {
                 ></input>
             </div>
                 <button onClick={()=>{onSubmit()}}>Search</button>
+        </div>
         </div>
     )
 }

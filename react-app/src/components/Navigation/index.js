@@ -1,23 +1,30 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import logo from '../../Images/GameNIGHT.png'
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
+	const history = useHistory()
 
 	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">Home</NavLink>
-			</li>
+		<div id='navbarmaindiv'>
+			<div>
+				<img id='logofornavbar' src={logo} onClick={()=>history.push('/')} />
+			</div>
 			{isLoaded && (
-				<li>
+				<div id='divprofileshoppingcart'>
+				<div>
 					<ProfileButton user={sessionUser} />
-				</li>
+				</div>
+				<div>
+				<i className="fa-solid fa-cart-shopping"></i>
+								</div>
+				</div>
 			)}
-		</ul>
+		</div>
 	);
 }
 

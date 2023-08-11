@@ -27,3 +27,4 @@ def filtered_games():
 def single_game(gameId):
    game = Games.query.get(gameId)
    return game.to_dict()
+

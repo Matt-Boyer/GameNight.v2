@@ -31,5 +31,6 @@ class Cart(db.Model, UserMixin):
             'user_id': self.user_id,
             'game_id': self.game_id,
             'quantity': self.quantity,
-            'created_at': self.created_at
+            'created_at': self.created_at,
+            'games': self.games.to_dict()
         }

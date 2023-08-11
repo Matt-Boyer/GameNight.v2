@@ -7,3 +7,13 @@
 .gapforinputfilter {
     margin-right: 22px;
 }
+
+#searchbarforgameslandingpage {
+    width: 50vw;
+    text-align: center;
+}
+
+#innerdivsearchbarforgameslandingpage {
+    justify-content: center;
+    display: flex;
+}
