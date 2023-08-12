@@ -8,6 +8,14 @@
 
 }
 
+#justforsmoothtransitioninfiltercategory {
+    width: 15px;
+    height: 20px;
+    position: absolute;
+    top: 19px;
+    right: -16px;
+}
+
 #searchbarforgameslandingpage {
     width: 50vw;
     text-align: center;
@@ -50,6 +58,33 @@
     width: max-content;
     top: 39px;
     left: 0px;
+}
+
+.innerdivholdingfilterplayers {
+    position: absolute;
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: grey;
+    display: flex;
+    width: 103px;
+    top: 39px;
+    left: 0px;
+    grid-gap: 10px;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.innerdivplayersradio {
+    border: solid 1px;
+    border-radius: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-color: white;
 }
 
 .hiddenforfilterlandgingpage {

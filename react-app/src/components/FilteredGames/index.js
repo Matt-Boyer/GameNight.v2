@@ -11,11 +11,19 @@ function FilteredGames() {
     const dispatch = useDispatch()
     const [category, setCategory] = useState([])
     const [method, setMethod] = useState([])
+    const [maxPlayerValue, setMaxPlayerValue] = useState()
+    const [minPlayerValue, setMinPlayerValue] = useState()
+    const [minAgeValue, setMinAgeValue] = useState()
+    const [maxPriceValue, setMaxPriceValue] = useState()
     const [isShown, setIsShown] = useState(false)
     const [isShownMethod, setIsShownMethod] = useState(false)
+    const [minPlayer, setMinPlayer] = useState(false)
+    const [maxPlayer, setMaxPlayer] = useState(false)
+    const [minAge, setMinAge] = useState(false)
+    const [maxPrice, setMaxPrice] = useState(false)
 
     const onSubmit = async () => {
-        let err = await dispatch(thunkFilteredGames(category, method))
+        let err = await dispatch(thunkFilteredGames(category, method, minPlayerValue, maxPlayerValue, minAgeValue, maxPriceValue))
     }
 
     //NEED TO ACCOUNT FOR IF THEY DONT SELECT ANYTHING ON FILTER MAKE ALL BE SELECTED OR SEOMTHING LIKE THAT
@@ -40,6 +48,10 @@ function FilteredGames() {
                                 onMouseEnter={() => setIsShown(true)}
                                 onMouseLeave={() => setIsShown(false)}
                             >
+                                <div id='justforsmoothtransitioninfiltercategory'
+                                onMouseEnter={() => setIsShown(true)}
+                                onMouseLeave={() => setIsShown(true)}
+                                ></div>
                                 <div className={isShown ? 'innerdivholdingfilter' : 'innerdivholdingfilter hiddenforfilterlandgingpage'}>
                                     <div>
                                         <label htmlFor="Adult/Drinking Games">Adult/Drinking Games:</label>
@@ -186,8 +198,242 @@ function FilteredGames() {
                             onMouseEnter={() => setMinPlayer(true)}
                             onMouseLeave={() => setMinPlayer(false)}
                         >
-                            <p className='ptagcategoryfiltersearch'>Minimum Players</p>
+                            <p className='ptagcategoryfiltersearch'>Min Players</p>
                             <i className="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div>
+                            <div className='maindivholdingfilter'
+                                onMouseEnter={() => setMinPlayer(true)}
+                                onMouseLeave={() => setMinPlayer(false)}
+                            >
+                                <div className={minPlayer ? 'innerdivholdingfilterplayers' : 'innerdivholdingfilterplayers hiddenforfilterlandgingpage'}>
+
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="minplayers">1</label>
+                                            <input className='gapforinputfilter' value={1} name='minplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMinPlayerValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="minplayers">2</label>
+                                            <input className='gapforinputfilter' value={2} name='minplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMinPlayerValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="minplayers">3</label>
+                                            <input className='gapforinputfilter' value={3} name='minplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMinPlayerValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="minplayers">4</label>
+                                            <input className='gapforinputfilter' value={4} name='minplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMinPlayerValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="minplayers">5+</label>
+                                            <input className='gapforinputfilter' value={5} name='minplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMinPlayerValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='outterdivcategorydownarrowfiltersearch'>
+                        <div className='categoryanddownarrowfiltersearch'
+                            onMouseEnter={() => setMaxPlayer(true)}
+                            onMouseLeave={() => setMaxPlayer(false)}
+                        >
+                            <p className='ptagcategoryfiltersearch'>Max Players</p>
+                            <i className="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div>
+                            <div className='maindivholdingfilter'
+                                onMouseEnter={() => setMaxPlayer(true)}
+                                onMouseLeave={() => setMaxPlayer(false)}
+                            >
+                                <div className={maxPlayer ? 'innerdivholdingfilterplayers' : 'innerdivholdingfilterplayers hiddenforfilterlandgingpage'}>
+
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxplayers">1</label>
+                                            <input className='gapforinputfilter' value={1} name='maxplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPlayerValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxplayers">2</label>
+                                            <input className='gapforinputfilter' value={2} name='maxplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPlayerValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxplayers">3</label>
+                                            <input className='gapforinputfilter' value={3} name='maxplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPlayerValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxplayers">4</label>
+                                            <input className='gapforinputfilter' value={4} name='maxplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPlayerValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxplayers">5+</label>
+                                            <input className='gapforinputfilter' value={5} name='maxplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPlayerValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='outterdivcategorydownarrowfiltersearch'>
+                        <div className='categoryanddownarrowfiltersearch'
+                            onMouseEnter={() => setMinAge(true)}
+                            onMouseLeave={() => setMinAge(false)}
+                        >
+                            <p className='ptagcategoryfiltersearch'>Min Age</p>
+                            <i className="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div>
+                            <div className='maindivholdingfilter'
+                                onMouseEnter={() => setMinAge(true)}
+                                onMouseLeave={() => setMinAge(false)}
+                            >
+                                <div className={minAge ? 'innerdivholdingfilterplayers' : 'innerdivholdingfilterplayers hiddenforfilterlandgingpage'}>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="minplayer">3+</label>
+                                            <input className='gapforinputfilter' value={3} name='minplayer' type='radio'
+                                            onClick={(e) => {
+                                                setMinAgeValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="minplayer">7+</label>
+                                            <input className='gapforinputfilter' value={7} name='minplayer' type='radio'
+                                            onClick={(e) => {
+                                                setMinAgeValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="minplayer">12+</label>
+                                            <input className='gapforinputfilter' value={12} name='minplayer' type='radio'
+                                            onClick={(e) => {
+                                                setMinAgeValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxplayers">16+</label>
+                                            <input className='gapforinputfilter' value={16} name='maxplayers' type='radio'
+                                            onClick={(e) => {
+                                                setMinAgeValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="minplayer">5+</label>
+                                            <input className='gapforinputfilter' value={18} name='minplayer' type='radio'
+                                            onClick={(e) => {
+                                                setMinAgeValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='outterdivcategorydownarrowfiltersearch'>
+                        <div className='categoryanddownarrowfiltersearch'
+                            onMouseEnter={() => setMaxPrice(true)}
+                            onMouseLeave={() => setMaxPrice(false)}
+                        >
+                            <p className='ptagcategoryfiltersearch'>Max Price</p>
+                            <i className="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div>
+                            <div className='maindivholdingfilter'
+                                onMouseEnter={() => setMaxPrice(true)}
+                                onMouseLeave={() => setMaxPrice(false)}
+                            >
+                                <div className={maxPrice ? 'innerdivholdingfilterplayers' : 'innerdivholdingfilterplayers hiddenforfilterlandgingpage'}>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxprice">$10</label>
+                                            <input className='gapforinputfilter' value={10} name='maxprice' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPriceValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxprice">$20</label>
+                                            <input className='gapforinputfilter' value={20} name='maxprice' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPriceValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxprice">$30</label>
+                                            <input className='gapforinputfilter' value={30} name='maxprice' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPriceValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxprice">$40</label>
+                                            <input className='gapforinputfilter' value={40} name='maxprice' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPriceValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                        <div className='innerdivplayersradio'>
+                                            <label htmlFor="maxprice">$50</label>
+                                            <input className='gapforinputfilter' value={50} name='maxprice' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPriceValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div><div className='innerdivplayersradio'>
+                                            <label htmlFor="maxprice">$60+</label>
+                                            <input className='gapforinputfilter' value={60} name='maxprice' type='radio'
+                                            onClick={(e) => {
+                                                setMaxPriceValue(e.target.value)
+                                            }}
+                                            ></input>
+                                        </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
