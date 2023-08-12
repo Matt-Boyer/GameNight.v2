@@ -5,7 +5,7 @@
 }
 
 .gapforinputfilter {
-    margin-right: 22px;
+
 }
 
 #searchbarforgameslandingpage {
@@ -16,4 +16,47 @@
 #innerdivsearchbarforgameslandingpage {
     justify-content: center;
     display: flex;
+}
+
+#divforfiltersearchbarlandingpage {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.categoryanddownarrowfiltersearch {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+    height: fit-content;
+}
+
+.ptagcategoryfiltersearch {
+    margin: 0px;
+}
+
+.innerdivholdingfilter {
+    position: absolute;
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: max-content;
+    top: 39px;
+    left: 0px;
+}
+
+.hiddenforfilterlandgingpage {
+    visibility: hidden;
+}
+
+.outterdivcategorydownarrowfiltersearch {
+    display: flex;
+    position: relative;
 }

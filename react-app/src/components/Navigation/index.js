@@ -14,6 +14,11 @@ function Navigation({ isLoaded }){
 			<div>
 				<img id='logofornavbar' src={logo} onClick={()=>history.push('/')} />
 			</div>
+			<div>
+                <div id='innerdivsearchbarforgameslandingpage'>
+                    <input id='searchbarforgameslandingpage' type="text" placeholder='Search by game name' />
+                </div>
+            </div>
 			{isLoaded && (
 				<div id='divprofileshoppingcart'>
 				<div>
