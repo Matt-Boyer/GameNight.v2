@@ -29,13 +29,17 @@ export const thunkSingleGame = (gameId) => async(dispatch) => {
     }
 }
 
-export const thunkFilteredGames = (category,method) => async(dispatch) => {
+export const thunkFilteredGames = (category,method,minPlayer,maxPlayer,minAge,price) => async(dispatch) => {
     const res = await fetch(`/api/games/filtered`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
             "Category":`${category}`,
-            "Method": `${method}`
+            "Method": `${method}`,
+            "MinPlayer": `${minPlayer}`,
+            "MaxPlayer": `${maxPlayer}`,
+            "MinAge": `${minAge}`,
+            "Price": `${price}`
 		},
     });
     if (res.ok) {

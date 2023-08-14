@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { thunkDeleteReview } from '../../store/reviews'
+import { thunkSingleGame } from '../../store/games'
 
 function DeleteReview() {
     const history = useHistory()
@@ -12,15 +13,15 @@ function DeleteReview() {
 
     const onSubmit = async() => {
         const err = await dispatch(thunkDeleteReview(gameId))
+        dispatch(thunkSingleGame(gameId))
     }
 
     return (
         <div>
-            DeleteReview
             <button
                 onClick={(e) => {
                     onSubmit()
-                }}>Delete</button>
+                }}>Delete Review</button>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from 'react'
 import { thunkSingleGame } from '../../store/games'
 import { useParams } from 'react-router-dom'
 import { thunkEditQuantity, thunkGetCart } from '../../store/cart'
+import './cart.css'
 
 function Cart() {
     const cart = useSelector(state => state.cart.cart)
@@ -24,26 +25,26 @@ function Cart() {
     }
 
     return (
-        <div>
-            {items?.map((item)=> {
+        <div id='maindivcartpositioning'>
+            {items ? (items?.map((item)=> {
                 return <div key={item?.id}>
                     {item?.games?.name}
                    {item&&item.games&& <button
                     onClick={async()=>{
-                    await dispatch(thunkEditQuantity(Number(item.quantity)+1,item.id))
+                    await dispatch(thunkEditQuantity(Number(item.quantity)+1,item.game_id))
 
                     }}
                     >+</button>}
                     {item?.quantity}
                     {item&&item.games&&<button
                     onClick={async()=>{
-                        await dispatch(thunkEditQuantity(Number(item.quantity)-1,item.id))
+                        await dispatch(thunkEditQuantity(Number(item.quantity)-1,item.game_id))
 
                         }}
                     >-</button>}
                 </div>
             })
-            }
+            ):'  '}
         </div>
     )
 }

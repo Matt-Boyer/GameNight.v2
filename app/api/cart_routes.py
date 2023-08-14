@@ -42,7 +42,8 @@ def add_to_cart(gameId):
 @login_required
 def edit_review(gameId):
     form = CartForm()
-    item = Cart.query.get(gameId)
+    item = Cart.query.filter(Cart.game_id == gameId).first()
+    print('--------------------------------------------',item)
     form['csrf_token'].data = request.cookies['csrf_token']
     item.user_id = current_user.id
     item.game_id = gameId

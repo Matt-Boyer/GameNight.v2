@@ -1,0 +1,31 @@
+#maindivsinglegamepage {
+    display: flex;
+}
+
+#outerdivcartsinglepagefalse {
+    display: none;
+}
+
+#picofgamesinglegame {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#innerdivholdpicofgamesinglegame {
+    width: 50vw;
+    height: 25vw;
+}
+
+#outterdivsinglegamepage {
+    display: flex;
+}
+
+#innerdivpriceadditembutton {
+
+}
+
+#outerrdivpriceadditembutton {
+    width: 25vw;
+    background-color: white;
+}

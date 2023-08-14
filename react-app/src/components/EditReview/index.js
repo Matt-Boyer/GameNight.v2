@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { thunkEditReview, thunkSingleReview } from '../../store/reviews'
+import { thunkSingleGame } from '../../store/games'
+import { thunkGetCart } from '../../store/cart'
+import DeleteReview from '../DeleteReview'
 
 function EditReview() {
     const review = useSelector(state => state.reviews.review)
@@ -11,6 +14,7 @@ function EditReview() {
     const dispatch = useDispatch()
     const { gameId } = useParams()
     const [content, setContent] = useState(review?.content)
+    const [errors, setErrors] = useState({})
 
     useEffect(async() => {
         let err = await dispatch(thunkSingleReview(gameId))
@@ -18,6 +22,11 @@ function EditReview() {
 
     const onSubmit = async() => {
         const err = await dispatch(thunkEditReview(content,gameId))
+        if (err.errors?.length > 0) {
+            setErrors(err.errors)
+        }
+        await dispatch(thunkSingleGame(gameId))
+        await dispatch(thunkGetCart())
     }
 
 
@@ -32,7 +41,10 @@ function EditReview() {
 
     return (
         <div>
-            EditReview
+            <div>
+                <DeleteReview />
+            </div>
+            <div>
             <input type="text"
                 value={content?content:review.content}
                 onChange={(e) => {
@@ -43,6 +55,8 @@ function EditReview() {
                 onClick={(e) => {
                     onSubmit()
                 }}>Submit</button>
+            </div>
+            <div>{errors[0]?.split(':')[1] ? <p>{errors[0]?.split(':')[1]}</p> : ''}</div>
         </div>
     )
 }

@@ -4,8 +4,8 @@
     gap: 19px;
 }
 
-.gapforinputfilter {
-
+#outterdivsearchbarforgames {
+    margin-bottom: 30px;
 }
 
 #justforsmoothtransitioninfiltercategory {
@@ -16,14 +16,56 @@
     right: -16px;
 }
 
+#styleforbuttonfiltersearch {
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 10px;
+}
+
+#innerdivmagnifyingglasssearchbar {
+    position: relative;
+    left: -23px;
+    padding-top: 7px;
+    padding-left: 6px;
+    padding-right: 4px;
+    border-left: 1px solid;
+    top: 1px;
+}
+
+.fa-magnifying-glass{
+
+}
+
+.innerdivstarsfilteredgameslist {
+    display: flex;
+}
+
 #searchbarforgameslandingpage {
-    width: 50vw;
+    width: 32vw;
     text-align: center;
+    height: 28px;
+    border: solid 2px;
+    border-radius: 10px;
+    position: relative;
+    left: 10px;
+}
+
+/* LIGHTER COLOR LESS TRASPARENT*/
+
+#innerdivlogogamenightcenterpagelandingpage {
+    justify-content: center;
+    display: flex;
 }
 
 #innerdivsearchbarforgameslandingpage {
     justify-content: center;
     display: flex;
+    position: relative;
+}
+
+.ptagnumberofreviews {
+    margin-top: 0px;
 }
 
 #divforfiltersearchbarlandingpage {
@@ -75,6 +117,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+#positionforlandingpage {
+}
+
+#logoforgamenightlandingpage {
+
 }
 
 .innerdivplayersradio {

@@ -1,0 +1,65 @@
+body {
+    background-image: linear-gradient(to bottom right, red, #006EFF);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.outterdivcardfilteredgame {
+    width: 192px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.picofgamefilteredgames {
+    max-width: 100%;
+    max-height: 260px;
+}
+
+.gamepricecard {
+    margin-top: 13px;
+}
+
+.divholdinggametagforspacingawayfrompic {
+    margin-top: auto;
+}
+
+.gamenameh4tag {
+    margin-bottom: 10px;
+}
+
+#outerdivmappedgames {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 20px;
+    grid-gap: 20px;
+    gap: 20px;
+    justify-content: center;
+    margin: 25px;
+}
+
+#justpassingdownpropshidthis {
+    display: none;
+}
+
+.outterdivpicgamesfiltered {
+    width: 276px;
+    background-color: #c9cacc59;
+    display: flex;
+    justify-content: center;
+}
+
+.outterdivpicgamesfiltered:hover {
+    width: 276px;
+    background-color: #dee0e3ab;
+    display: flex;
+    justify-content: center;
+}
+
+.innerdivpicofgamefilteredgames {
+    display: flex;
+    justify-content: center;
+}

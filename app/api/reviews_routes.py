@@ -9,6 +9,16 @@ from sqlalchemy.orm import sessionmaker
 
 reviews_routes = Blueprint('reviews', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
 
 db_url = "sqlite:///dev.db"
 engine = create_engine(db_url)
@@ -39,6 +49,7 @@ def create_review(gameId):
         db.session.add(review)
         db.session.commit()
         return review.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @reviews_routes.route('/edit/<int:gameId>', methods=['GET','POST','PUT'])
 @login_required
@@ -46,12 +57,14 @@ def edit_review(gameId):
     form = ReviewForm()
     review = Reviews.query.filter(Reviews.user_id == current_user.id, Reviews.game_id == gameId).first()
     form['csrf_token'].data = request.cookies['csrf_token']
-    review.user_id = current_user.id
-    review.game_id = gameId
-    review.content = form.data['content']
-    review.stars = 0
-    db.session.commit()
-    return review.to_dict()
+    if form.validate_on_submit():
+        review.user_id = current_user.id
+        review.game_id = gameId
+        review.content = form.data['content']
+        review.stars = 0
+        db.session.commit()
+        return review.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @reviews_routes.route('/single/<int:gameId>')
 @login_required

@@ -32,9 +32,9 @@ function App() {
           <Route exact path="/game/cart/add/:gameId" >
             <AddItemCart />
           </Route>
-          <Route exact path="/cart/items" >
+          {/* <Route exact path="/cart/items" >
             <Cart />
-          </Route>
+          </Route> */}
           <Route exact path="/deletereview/:gameId" >
             <DeleteReview />
           </Route>

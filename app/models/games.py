@@ -18,6 +18,7 @@ class Games(db.Model, UserMixin):
     min_age = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Numeric(precision=5, scale=2), nullable=False)
     image = db.Column(db.Text, nullable=True)
+    description = db.Column(db.String(2000), nullable=False)
 
     reviews = db.relationship(
         "Reviews",
@@ -53,5 +54,6 @@ class Games(db.Model, UserMixin):
             'price': self.price,
             'image' : self.image,
             'avg_stars': 0,
+            'description': self.description,
             'reviews': [review.to_dict() for review in self.reviews]
         }
