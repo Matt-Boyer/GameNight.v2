@@ -465,7 +465,7 @@ function LandingPage() {
             <div>
             </div>
         </div>
-        <div>
+        {/* <div>
             <button onClick={()=>{
                 history.push('/games/filtered')
             }}>Filtered Games</button>
@@ -487,7 +487,7 @@ function LandingPage() {
             <button onClick={()=>{
                 history.push('/game/cart/add/1')
             }}>AddItemCart</button>
-        </div>
+        </div> */}
         </div>
     )
 }

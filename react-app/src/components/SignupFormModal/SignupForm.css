@@ -1,1 +1,25 @@
+#outerdivsignuppage {
+    /* border-radius: 10px; */
+}
 
+#innerdivsignuppage {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.errorsforsignuppage {
+    color: red;
+}
+
+#formsignuppageinputs {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    align-items: center;
+}
+
+#signuptextsignupmodal {
+    margin: 0px;
+    text-align: center;
+}

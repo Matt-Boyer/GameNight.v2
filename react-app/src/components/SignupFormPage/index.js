@@ -28,7 +28,8 @@ function SignupFormPage() {
   };
 
   return (
-    <>
+    <div>
+      <div id="innerdivsignuppage">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <ul>
@@ -72,7 +73,8 @@ function SignupFormPage() {
         </label>
         <button type="submit">Sign Up</button>
       </form>
-    </>
+      </div>
+    </div>
   );
 }
 

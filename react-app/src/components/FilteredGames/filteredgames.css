@@ -4,6 +4,10 @@
     gap: 19px;
 }
 
+#maindivfilteredgames {
+    display: flex;
+}
+
 #outterdivsearchbarforgames {
     margin-bottom: 30px;
 }

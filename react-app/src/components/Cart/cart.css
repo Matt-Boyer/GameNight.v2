@@ -2,4 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    background-color: white;
+    height: 100vw;
+}
+
+#outerdivholdingcart {
+    position: sticky;
+    top: 10px;
 }

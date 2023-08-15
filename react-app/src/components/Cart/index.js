@@ -15,36 +15,53 @@ function Cart() {
     const [gameId, setGameId] = useState()
 
     let items = Object.values(cart)
+   
+    const onCheckout = async() => {
+        items.forEach(async(item) => {
+            await dispatch(thunkEditQuantity(0, item.game_id))
+        });
+    }
 
-    useEffect(async() => {
+    useEffect(async () => {
         let err = await dispatch(thunkGetCart())
     }, [])
 
-    if(!items || !cart || !items.length) {
+    if (!items || !cart || !items.length) {
         return null
     }
 
     return (
         <div id='maindivcartpositioning'>
-            {items ? (items?.map((item)=> {
-                return <div key={item?.id}>
-                    {item?.games?.name}
-                   {item&&item.games&& <button
-                    onClick={async()=>{
-                    await dispatch(thunkEditQuantity(Number(item.quantity)+1,item.game_id))
-
+            <div id='outerdivholdingcart'>
+                <div>
+                    <button
+                    onClick={async() => {
+                        await onCheckout()
                     }}
-                    >+</button>}
-                    {item?.quantity}
-                    {item&&item.games&&<button
-                    onClick={async()=>{
-                        await dispatch(thunkEditQuantity(Number(item.quantity)-1,item.game_id))
-
-                        }}
-                    >-</button>}
+                    >Checkout</button>
                 </div>
-            })
-            ):'  '}
+                <div>
+                    {items ? (items?.map((item) => {
+                        return <div key={item?.id}>
+                            {item?.games?.name}
+                            {item && item.games && <button
+                                onClick={async () => {
+                                    await dispatch(thunkEditQuantity(Number(item.quantity) + 1, item.game_id))
+
+                                }}
+                            >+</button>}
+                            {item?.quantity}
+                            {item && item.games && <button
+                                onClick={async () => {
+                                    await dispatch(thunkEditQuantity(Number(item.quantity) - 1, item.game_id))
+
+                                }}
+                            >-</button>}
+                        </div>
+                    })
+                    ) : '  '}
+                </div>
+            </div>
         </div>
     )
 }
