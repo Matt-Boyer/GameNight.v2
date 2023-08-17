@@ -1,4 +1,5 @@
 import React, { useRef, useState, useContext } from 'react';
+import howtogif from '../../Images/gamenightgif.gif'
 import './confused.css'
 
 function Confused({ setConfusedShown }) {
@@ -12,8 +13,11 @@ function Confused({ setConfusedShown }) {
                 setConfusedShown(false)
             }} />
             <div id="modal-contentcheckout">
-                <div id='textmodalaftercheckout'>
+                <div id='textmodalaftercheckouthowtousegamenight'>
                     <div >Click on the boxes (i.e. Category, Method) to filter and choose as many options.</div>
+                    <div id='divholdinggifforhowtousegamenight'>
+                        <img id='gifforhowtousegamenight' src={howtogif} alt="gif showing how to use gamenight filters" />
+                    </div>
                     <div >Click anywhere to continue.</div>
                 </div>
             </div>

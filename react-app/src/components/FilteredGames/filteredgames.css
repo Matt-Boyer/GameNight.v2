@@ -29,6 +29,15 @@
     background-color: white;
 }
 
+#styleforbuttonfiltersearch:hover {
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #d1cbcb;
+}
+
 #innerdivmagnifyingglasssearchbar {
     position: relative;
     left: -23px;
