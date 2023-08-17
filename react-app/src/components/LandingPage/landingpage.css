@@ -28,6 +28,7 @@ body {
 #outerconfusedonhowtosearch {
     position: absolute;
     bottom: 13px;
+    cursor: pointer;
 }
 
 .picofgamefilteredgames {
@@ -38,6 +39,21 @@ body {
 #innerdivbuttonsearchfilter {
     cursor: pointer;
   }
+
+#divhowtousegamenight {
+    cursor: pointer;
+    border: solid 1px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#divhowtousegamenight:hover {
+    cursor: pointer;
+    border: solid 1px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fe1d65;
+}
 
 .gamepricecard {
     margin-top: 13px;

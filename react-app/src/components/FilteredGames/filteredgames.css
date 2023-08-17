@@ -25,6 +25,8 @@
     border-radius: 10px;
     border: 1px solid;
     padding: 10px;
+    cursor: pointer;
+    background-color: white;
 }
 
 #innerdivmagnifyingglasssearchbar {
@@ -88,6 +90,17 @@
     height: fit-content;
 }
 
+.categoryanddownarrowfiltersearchhover {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+    height: fit-content;
+    background-color: #fe1d65;
+}
+
 .ptagcategoryfiltersearch {
     margin: 0px;
 }
@@ -97,7 +110,7 @@
     border: solid 1px;
     border-radius: 10px;
     padding: 10px;
-    background-color: grey;
+    background-color: #ffffffd9;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -111,7 +124,7 @@
     border: solid 1px;
     border-radius: 10px;
     padding: 10px;
-    background-color: grey;
+    background-color: #ffffffd9;
     display: flex;
     width: 103px;
     top: 39px;
@@ -147,6 +160,12 @@
 }
 
 .outterdivcategorydownarrowfiltersearch {
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+
+.outterdivcategorydownarrowfiltersearch:hover {
     display: flex;
     position: relative;
     cursor: pointer;

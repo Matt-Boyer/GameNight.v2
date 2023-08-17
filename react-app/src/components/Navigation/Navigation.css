@@ -58,6 +58,7 @@
 
 .fa-user-circle {
   font-size: 60px;
+  cursor: pointer;
 }
 
 #logofornavbar {
@@ -67,4 +68,5 @@
 
 .fa-cart-shopping {
   font-size: 60px;
+  cursor: pointer;
 }

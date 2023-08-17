@@ -7,6 +7,7 @@ import logo from '../../Images/GAMENIGHTv2.png'
 import './landingpage.css'
 import { FilterCon } from '../../context/FilterContex'
 import Cart from '../Cart'
+import Confused from '../Confused'
 
 
 function LandingPage() {
@@ -26,6 +27,7 @@ function LandingPage() {
     const [maxPlayer, setMaxPlayer] = useState(false)
     const [minAge, setMinAge] = useState(false)
     const [maxPrice, setMaxPrice] = useState(false)
+    const [confusedShown, setConfusedShown] = useState(false)
 
     const onSubmit = async () => {
         let err = await dispatch(thunkFilteredGames(category, method, minPlayerValue, maxPlayerValue, minAgeValue, maxPriceValue))
@@ -49,7 +51,7 @@ function LandingPage() {
                 </div>
                 <div id='divforfiltersearchbarlandingpage'>
                     <div className='outterdivcategorydownarrowfiltersearch'>
-                        <div className='categoryanddownarrowfiltersearch'
+                        <div className={isShown ? 'categoryanddownarrowfiltersearchhover' :'categoryanddownarrowfiltersearch'}
                             onMouseEnter={() => setIsShown(true)}
                             onMouseLeave={() => setIsShown(false)}
                         >
@@ -134,7 +136,7 @@ function LandingPage() {
                         </div>
                     </div>
                     <div className='outterdivcategorydownarrowfiltersearch'>
-                        <div className='categoryanddownarrowfiltersearch'
+                        <div className={isShownMethod ? 'categoryanddownarrowfiltersearchhover' :'categoryanddownarrowfiltersearch'}
                             onMouseEnter={() => setIsShownMethod(true)}
                             onMouseLeave={() => setIsShownMethod(false)}
                         >
@@ -207,7 +209,7 @@ function LandingPage() {
                         </div>
                     </div>
                     <div className='outterdivcategorydownarrowfiltersearch'>
-                        <div className='categoryanddownarrowfiltersearch'
+                        <div className={minPlayer ? 'categoryanddownarrowfiltersearchhover' :'categoryanddownarrowfiltersearch'}
                             onMouseEnter={() => setMinPlayer(true)}
                             onMouseLeave={() => setMinPlayer(false)}
                         >
@@ -267,7 +269,7 @@ function LandingPage() {
                         </div>
                     </div>
                     <div className='outterdivcategorydownarrowfiltersearch'>
-                        <div className='categoryanddownarrowfiltersearch'
+                        <div className={maxPlayer ? 'categoryanddownarrowfiltersearchhover' :'categoryanddownarrowfiltersearch'}
                             onMouseEnter={() => setMaxPlayer(true)}
                             onMouseLeave={() => setMaxPlayer(false)}
                         >
@@ -327,7 +329,7 @@ function LandingPage() {
                         </div>
                     </div>
                     <div className='outterdivcategorydownarrowfiltersearch'>
-                        <div className='categoryanddownarrowfiltersearch'
+                        <div className={minAge ? 'categoryanddownarrowfiltersearchhover' :'categoryanddownarrowfiltersearch'}
                             onMouseEnter={() => setMinAge(true)}
                             onMouseLeave={() => setMinAge(false)}
                         >
@@ -393,7 +395,7 @@ function LandingPage() {
                         </div>
                     </div>
                     <div className='outterdivcategorydownarrowfiltersearch'>
-                        <div className='categoryanddownarrowfiltersearch'
+                        <div className={maxPrice ? 'categoryanddownarrowfiltersearchhover' :'categoryanddownarrowfiltersearch'}
                             onMouseEnter={() => setMaxPrice(true)}
                             onMouseLeave={() => setMaxPrice(false)}
                         >
@@ -471,9 +473,15 @@ function LandingPage() {
                 {currUser === undefined ? null : <Cart />}
             </div>
             <div id='outerconfusedonhowtosearch'>
-                <div>
+                <div
+                id='divhowtousegamenight'
+                onClick={() => {
+                    setConfusedShown(true)
+                }}
+                >
                     How to use Game Night
                 </div>
+                {confusedShown && <Confused setConfusedShown={setConfusedShown} />}
             </div>
         </div>
     )
