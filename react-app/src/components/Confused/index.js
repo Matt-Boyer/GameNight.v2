@@ -1,5 +1,5 @@
 import React, { useRef, useState, useContext } from 'react';
-import './checkoutpopup.css'
+import './confused.css'
 
 function Confused({ setConfusedShown }) {
     const modalRef = useRef();
@@ -13,8 +13,8 @@ function Confused({ setConfusedShown }) {
             }} />
             <div id="modal-contentcheckout">
                 <div id='textmodalaftercheckout'>
-                    <div >Click on the boxes (i.e. Category, Method) to filter and choose as many options</div>
-                    <div ></div>
+                    <div >Click on the boxes (i.e. Category, Method) to filter and choose as many options.</div>
+                    <div >Click anywhere to continue.</div>
                 </div>
             </div>
         </div>
