@@ -472,7 +472,7 @@ function LandingPage() {
             </div>
             <div id='outerconfusedonhowtosearch'>
                 <div>
-                    Confused on how to search?
+                    How to use Game Night
                 </div>
             </div>
         </div>
