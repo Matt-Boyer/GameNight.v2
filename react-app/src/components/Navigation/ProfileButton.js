@@ -5,6 +5,7 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import './Navigation.css';
 
 function ProfileButton({ user }) {
   const history = useHistory()
@@ -43,17 +44,17 @@ function ProfileButton({ user }) {
   return (
     <>
       <div onClick={openMenu}>
-        <i className="fas fa-user-circle"  />
+        <i className="fas fa-user-circle" />
       </div>
       <div className={ulClassName} ref={ulRef}>
         {user ? (
-          <>
-            <div>{user.username}</div>
-            <div>{user.email}</div>
-            <div>
-              <button onClick={handleLogout}>Log Out</button>
-            </div>
-          </>
+          <div id="innerdivprofiledropdown">
+              <div>{user.username}</div>
+              <div>{user.email}</div>
+              <div id="innerdivlogoutprofiledropdown">
+                <div id="logoutbuttonprofiledropdown" onClick={handleLogout}>Log Out</div>
+              </div>
+          </div>
         ) : (
           <>
             <OpenModalButton

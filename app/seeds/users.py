@@ -58,7 +58,9 @@ def seed_users():
     game10 = Games(
         category_id=1, method_id=3, name='Kings Cup', max_players=10,min_players=2,min_age=21,price=4.99, image = 'https://happyhourhelp.com/wp-content/uploads/2021/06/Waterfall-Drinking-Game-Guide-Rules-Kings-Cup-e1622832935875.png', description="Kings (also known as king's cup, donut, circle of death or ring of fire) is a drinking game using playing cards. Players must drink and dispense drinks based on cards drawn. The cards have predetermined drink rules prior to the game's beginning. Often groups establish house rules with their own game variations.")
     review1 = Reviews(
-        user_id = 1,game_id=1,content='This was fun',stars=2)
+        user_id = 1,game_id=1,content='This was fun',stars=5)
+    review2 = Reviews(
+        user_id = 2,game_id=1,content='It did not fit in my DVD player. Do not recommend',stars=2)
     cart1 = Cart(
         user_id = 1,game_id=1,quantity=2)
 
@@ -74,6 +76,8 @@ def seed_users():
     db.session.add_all([game1, game2,game3,game4,game5,game6,game7,game8,game9,game10])
     db.session.commit()
     db.session.add(review1)
+    db.session.commit()
+    db.session.add(review2)
     db.session.commit()
     db.session.add(cart1)
     db.session.commit()

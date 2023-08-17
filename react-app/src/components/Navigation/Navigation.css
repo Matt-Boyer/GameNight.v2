@@ -15,7 +15,38 @@
 
 .profile-dropdown {
   position: absolute;
+  right: 3px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  z-index: 1;
+  top: 63px;
 }
+
+#innerdivlogoutprofiledropdown {
+  background: darkgrey;
+  border-radius: 10px;
+}
+
+#logoutbuttonprofiledropdown {
+  padding: 5px;
+  text-align: center;
+}
+
+.innerdivisgnuploginnavbar {
+  padding: 10px;
+}
+
+#innerdivprofiledropdown {
+  padding: 10px;
+}
+
+/* .loginsignupnavbarbutton {
+  border: solid black 1px;
+  border-radius: 10px;
+  background-color: aliceblue;
+  cursor: pointer;
+  padding: 12px;
+} */
 
 #innerdivforlogonavbar {
   margin-left: 14px;
@@ -31,6 +62,7 @@
 
 #logofornavbar {
   width: 239px;
+  cursor: pointer;
 }
 
 .fa-cart-shopping {

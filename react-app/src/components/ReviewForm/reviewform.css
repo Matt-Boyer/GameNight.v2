@@ -1,0 +1,30 @@
+#textareaforcreatereview {
+    max-width: 829px;
+    height: 79px;
+    width: -webkit-fill-available;
+    resize: none;
+    line-height: 1.3;
+    padding: 5px;
+}
+
+#submitreviewbutton {
+    position: relative;
+    left: 10px;
+    top: -6px;
+}
+
+#errorscreatingreview {
+    color: red;
+}
+
+#outterdivpostionstarsreviewfor {
+    position: absolute;
+    left: 0px;
+    top: -38px;
+    margin-bottom: 9px;
+}
+
+#outerdivtomakerelativeforstars {
+    position: relative;
+    top: 0px;
+}

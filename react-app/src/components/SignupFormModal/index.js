@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { signUp } from "../../store/session";
+import { login, signUp } from "../../store/session";
 import "./SignupForm.css";
 
 function SignupFormModal() {
@@ -16,8 +16,11 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			let data = await dispatch(signUp(username, email, password));
 			if (data) {
+				data = data.map((err) => {
+					return err.split(':')[1]
+				})
 				setErrors(data);
 			} else {
 				closeModal();
@@ -34,62 +37,72 @@ function SignupFormModal() {
 			<div id="innerdivsignuppage">
 				<div>
 
-			<h1 id="signuptextsignupmodal">Sign Up</h1>
+					<h1 id="signuptextsignupmodal">Sign Up</h1>
 				</div>
-			<form onSubmit={handleSubmit} id="formsignuppageinputs">
+				<form onSubmit={handleSubmit} id="formsignuppageinputs">
+					<div>
+						{errors.map((error, idx) => (
+							<div key={idx} className="errorsforsignuppage">{error}</div>
+						))}
+					</div>
+					<div>
+						<label>
+							Email:
+							<input
+								type="text"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+								required
+							/>
+						</label>
+					</div>
+					<div>
+						<label>
+							Username:
+							<input
+								type="text"
+								value={username}
+								onChange={(e) => setUsername(e.target.value)}
+								required
+							/>
+						</label>
+					</div>
+					<div>
+						<label>
+							Password:
+							<input
+								type="password"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+								required
+							/>
+						</label>
+					</div>
+					<div>
+						<label>
+							Confirm Password:
+							<input
+								type="password"
+								value={confirmPassword}
+								onChange={(e) => setConfirmPassword(e.target.value)}
+								required
+							/>
+						</label>
+					</div>
+					<div>
+						<button type="submit">Sign Up</button>
+					</div>
+					<div>
+					</div>
+				</form>
 				<div>
-					{errors.map((error, idx) => (
-						<div key={idx} className="errorsforsignuppage">{error}</div>
-					))}
+					<button
+						onClick={async () => {
+							await dispatch(login('demo@aa.io', 'password'));
+							closeModal()
+						}}
+					>Demo User</button>
 				</div>
-				<div>
-				<label>
-					Email:
-					<input
-						type="text"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						required
-					/>
-				</label>
-				</div>
-				<div>
-				<label>
-					Username:
-					<input
-						type="text"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
-						required
-					/>
-				</label>
-				</div>
-				<div>
-				<label>
-					Password:
-					<input
-						type="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						required
-					/>
-				</label>
-				</div>
-				<div>
-				<label>
-					Confirm Password:
-					<input
-						type="password"
-						value={confirmPassword}
-						onChange={(e) => setConfirmPassword(e.target.value)}
-						required
-					/>
-				</label>
-				</div>
-				<div>
-				<button type="submit">Sign Up</button>
-				</div>
-			</form>
 			</div>
 		</div>
 	);

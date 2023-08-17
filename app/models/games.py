@@ -42,6 +42,13 @@ class Games(db.Model, UserMixin):
             back_populates="games"
     )
 
+    @property
+    def avg_stars(self):
+        if not self.reviews:
+            return None
+        total = sum(review.stars for review in self.reviews)
+        return total / len(self.reviews) if len(self.reviews) > 0 else None
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -53,7 +60,7 @@ class Games(db.Model, UserMixin):
             'min_age': self.min_age,
             'price': self.price,
             'image' : self.image,
-            'avg_stars': 0,
+            'avg_stars': self.avg_stars,
             'description': self.description,
             'reviews': [review.to_dict() for review in self.reviews]
         }

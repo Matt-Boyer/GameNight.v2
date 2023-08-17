@@ -13,7 +13,7 @@ class Reviews(db.Model, UserMixin):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     game_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('games.id')), nullable=False)
     content = db.Column(db.String(500), nullable=False)
-    stars = db.Column(db.Integer, nullable=True)
+    stars = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.Date)
 
     users = db.relationship(
@@ -30,6 +30,7 @@ class Reviews(db.Model, UserMixin):
         return {
             'id': self.id,
             'user_id': self.user_id,
+            'username': self.users.username,
             'game_id': self.game_id,
             'content': self.content,
             'stars':self.stars

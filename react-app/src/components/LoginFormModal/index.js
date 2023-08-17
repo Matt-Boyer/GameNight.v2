@@ -25,11 +25,12 @@ function LoginFormModal() {
     <>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
+        <div>
+          {/* {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
-          ))}
-        </ul>
+          ))} */}
+          {errors.length > 0 && <p>Invalid Credentials</p>}
+        </div>
         <label>
           Email
           <input
@@ -50,6 +51,14 @@ function LoginFormModal() {
         </label>
         <button type="submit">Log In</button>
       </form>
+      <div>
+					<button
+						onClick={async () => {
+							await dispatch(login('demo@aa.io', 'password'));
+							closeModal()
+						}}
+					>Demo User</button>
+				</div>
     </>
   );
 }

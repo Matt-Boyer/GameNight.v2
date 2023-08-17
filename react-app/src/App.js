@@ -13,6 +13,7 @@ import EditReview from "./components/EditReview";
 import DeleteReview from "./components/DeleteReview";
 import Cart from "./components/Cart";
 import AddItemCart from "./components/AddItemCart";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <ScrollToTop />
       {isLoaded && (
         <Switch>
           <Route exact path="/games/filtered" >
@@ -32,9 +34,6 @@ function App() {
           <Route exact path="/game/cart/add/:gameId" >
             <AddItemCart />
           </Route>
-          {/* <Route exact path="/cart/items" >
-            <Cart />
-          </Route> */}
           <Route exact path="/deletereview/:gameId" >
             <DeleteReview />
           </Route>

@@ -6,6 +6,7 @@ import { thunkSingleGame } from '../../store/games'
 import { useParams } from 'react-router-dom'
 import { thunkAddItem, thunkEditQuantity, thunkGetCart } from '../../store/cart'
 import { FilterCon } from '../../context/FilterContex'
+import './additemcart.css'
 
 function AddItemCart() {
     const cart = useSelector(state => state.cart.cart)
@@ -18,7 +19,7 @@ function AddItemCart() {
 
     const onSubmit = async() => {
         const err = await dispatch(thunkAddItem(quantity,gameId))
-        await dispatch(thunkGetCart())
+        // await dispatch(thunkGetCart())
     }
 
     useEffect(async() => {
@@ -32,19 +33,20 @@ function AddItemCart() {
     let allReadyInCartConditonal = Object.values(allReadyInCart)
 
     return (
-        <div>
-            {allReadyInCart.length < 1 ?<button
+        <div id='maindivholdingaddcartbutton'>
+            {allReadyInCart.length < 1 ?<div
+            className='addtocartbutton'
             onClick={()=>{
                 onSubmit()
                 setCartShown(true)
             }}
-            >Add to cart</button> : <button
+            >Add to Cart</div> : <div
+            className='addtocartbutton'
             onClick={async()=>{
                 await dispatch(thunkEditQuantity(Number(allReadyInCartConditonal[0].quantity)+1,allReadyInCartConditonal[0].game_id))
                 setCartShown(true)
-                console.log(cartShown)
             }}
-            >Add to cart</button>}
+            >Add to Cart</div>}
         </div>
     )
 }

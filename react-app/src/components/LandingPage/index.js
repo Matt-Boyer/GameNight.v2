@@ -6,12 +6,14 @@ import { thunkFilteredGames } from '../../store/games'
 import logo from '../../Images/GAMENIGHTv2.png'
 import './landingpage.css'
 import { FilterCon } from '../../context/FilterContex'
+import Cart from '../Cart'
 
 
 function LandingPage() {
+    const currUser = useSelector(state => state.session.user?.id)
     const history = useHistory()
     const dispatch = useDispatch()
-    const {category, setCategory,method, setMethod,maxPlayerValue, setMaxPlayerValue,minPlayerValue, setMinPlayerValue,minAgeValue, setMinAgeValue,maxPriceValue, setMaxPriceValue} = useContext(FilterCon)
+    const {category, setCategory,method, setMethod,maxPlayerValue, setMaxPlayerValue,minPlayerValue, setMinPlayerValue,minAgeValue, setMinAgeValue,maxPriceValue, setMaxPriceValue, cartShown, setCartShown} = useContext(FilterCon)
     // const [category, setCategory] = useState([])
     // const [method, setMethod] = useState([])
     // const [maxPlayerValue, setMaxPlayerValue] = useState(null)
@@ -31,7 +33,7 @@ function LandingPage() {
     }
 
     return (
-        <div>
+        <div id='maindivlandingpageall'>
            <div id='positionforlandingpage'>
             <div>
                 <div id='innerdivlogogamenightcenterpagelandingpage'>
@@ -39,7 +41,7 @@ function LandingPage() {
                 </div>
                 <div id='outterdivsearchbarforgames'>
                     <div id='innerdivsearchbarforgameslandingpage'>
-                        <input id='searchbarforgameslandingpage' type="text" placeholder='Search by game name' />
+                        <input id='searchbarforgameslandingpage' type="text" placeholder='Search by game name -- FEATURE COMING SOON' />
                         <div id='innerdivmagnifyingglasssearchbar'>
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </div>
@@ -456,7 +458,7 @@ function LandingPage() {
                         </div>
                     </div>
                     <div>
-                        <div>
+                        <div id='innerdivbuttonsearchfilter'>
                             <button id='styleforbuttonfiltersearch' onClick={() => { onSubmit() }}>Search</button>
                         </div>
                     </div>
@@ -465,29 +467,14 @@ function LandingPage() {
             <div>
             </div>
         </div>
-        {/* <div>
-            <button onClick={()=>{
-                history.push('/games/filtered')
-            }}>Filtered Games</button>
-            <button onClick={()=>{
-                history.push('/game/1')
-            }}>SingleGame</button>
-            <button onClick={()=>{
-                history.push('/reviewform/1')
-            }}>ReviewForm</button>
-            <button onClick={()=>{
-                history.push('/editreview/1')
-            }}>EditReview</button>
-            <button onClick={()=>{
-                history.push('/deletereview/1')
-            }}>DeleteReview</button>
-            <button onClick={()=>{
-                history.push('/cart/items')
-            }}>Cart</button>
-            <button onClick={()=>{
-                history.push('/game/cart/add/1')
-            }}>AddItemCart</button>
-        </div> */}
+        <div id={cartShown ? 'outerdivcartsinglepagetrue' : 'outerdivcartsinglepagefalse'} >
+                {currUser === undefined ? null : <Cart />}
+            </div>
+            <div id='outerconfusedonhowtosearch'>
+                <div>
+                    Confused on how to search?
+                </div>
+            </div>
         </div>
     )
 }

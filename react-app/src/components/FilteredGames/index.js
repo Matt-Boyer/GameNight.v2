@@ -36,13 +36,35 @@ function FilteredGames() {
                             <div className='divholdinggametagforspacingawayfrompic'>
                                 <h4 className='gamenameh4tag'>{game.name}</h4>
                             </div>
-                            <div className='innerdivstarsfilteredgameslist'>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                <p className='ptagnumberofreviews'>(3) reviews</p>
+                            <div id="singlegameavgstarsnexttomainpic">
+                                <div
+                                    className={game.avg_stars >= 1 ? "filled" : "empty"}
+                                >
+                                    <i className="fa-sharp fa-solid fa-star"></i>
+                                </div>
+                                <div
+                                    className={game.avg_stars >= 2 ? "filled" : "empty"}
+                                >
+                                    <i className="fa-sharp fa-solid fa-star"></i>
+                                </div>
+                                <div
+                                    className={game.avg_stars >= 3 ? "filled" : "empty"}
+                                >
+                                    <i className="fa-sharp fa-solid fa-star"></i>
+                                </div>
+                                <div
+                                    className={game.avg_stars >= 4 ? "filled" : "empty"}
+                                >
+                                    <i className="fa-sharp fa-solid fa-star"></i>
+                                </div>
+                                <div
+                                    className={game.avg_stars >= 5 ? "filled" : "empty"}
+                                >
+                                    <i className="fa-sharp fa-solid fa-star"></i>
+                                </div>
+                                <div id='divreviewnumberandtext'>
+                                    ({game.reviews.length}) {game.reviews.length === 1 ? 'review' : 'reviews'}
+                                </div>
                             </div>
                             <div className='gamepricecard'>
                                 ${game.price}
@@ -51,7 +73,7 @@ function FilteredGames() {
                     </div>
                 })}
             </div>
-            <div id={cartShown? 'outerdivcartsinglepagetrue' : 'outerdivcartsinglepagefalse'} >
+            <div id={cartShown ? 'outerdivcartsinglepagetrue' : 'outerdivcartsinglepagefalse'} >
                 {currUser === undefined ? null : <Cart />}
             </div>
         </div>

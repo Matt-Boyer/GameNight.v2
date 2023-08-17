@@ -25,7 +25,7 @@ export const thunkEditQuantity = (quantity,gameId) => async (dispatch) => {
     })
     if (response.ok)    {
         const item = await response.json()
-        dispatch(editQuantity(item))
+        // dispatch(editQuantity(item))
         dispatch(thunkGetCart())
         return item
     }
@@ -43,7 +43,8 @@ export const thunkAddItem = (quantity, gameId) => async (dispatch) => {
     })
     if (response.ok)    {
         const item = await response.json()
-        dispatch(addItem(item))
+        // dispatch(addItem(item))
+        dispatch(thunkGetCart())
         return item
     }
     else if (response.status < 500){

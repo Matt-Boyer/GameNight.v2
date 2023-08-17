@@ -1,19 +1,16 @@
 """empty message
 
-Revision ID: bcc1b07bca50
-Revises:
-Create Date: 2023-08-14 15:50:10.575999
+Revision ID: 43b383ef2f30
+Revises: 
+Create Date: 2023-08-16 17:17:08.191537
 
 """
 from alembic import op
 import sqlalchemy as sa
 
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = 'bcc1b07bca50'
+revision = '43b383ef2f30'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -70,25 +67,13 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('game_id', sa.Integer(), nullable=False),
     sa.Column('content', sa.String(length=500), nullable=False),
-    sa.Column('stars', sa.Integer(), nullable=True),
+    sa.Column('stars', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.Date(), nullable=True),
     sa.ForeignKeyConstraint(['game_id'], ['games.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
-    if environment == "production":
-        op.execute(f"ALTER TABLE category SET SCHEMA {SCHEMA};")
-    if environment == "production":
-            op.execute(f"ALTER TABLE method SET SCHEMA {SCHEMA};")
-    if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-    if environment == "production":
-        op.execute(f"ALTER TABLE games SET SCHEMA {SCHEMA};")
-    if environment == "production":
-            op.execute(f"ALTER TABLE cart SET SCHEMA {SCHEMA};")
-    if environment == "production":
-            op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
 
 
 def downgrade():

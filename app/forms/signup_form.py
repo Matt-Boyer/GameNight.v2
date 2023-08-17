@@ -21,12 +21,12 @@ def user_exists(form, field):
 def max_length(form, field):
     email=field.data
     if len(email) > 100 :
-        raise ValidationError("Email can NOT be longer 100 characters")
+        raise ValidationError("Email can NOT be longer 100 characters.")
 
 def max_length_username(form, field):
     username=field.data
-    if len(username) > 20 :
-        raise ValidationError("Username can NOT be longer 20 characters")
+    if len(username) > 12 :
+        raise ValidationError("Username can NOT be longer 12 characters.")
 
 
 def username_exists(form, field):
@@ -39,11 +39,16 @@ def username_exists(form, field):
 def max_length_password(form, field):
     password=field.data
     if len(password) > 100 :
-        raise ValidationError("Password can NOT be longer 100 characters")
+        raise ValidationError("Password can NOT be longer 100 characters.")
+
+def min_length_password(form, field):
+    password=field.data
+    if len(password) < 7 :
+        raise ValidationError("Password must be at LEAST 8 characters.")
 
 
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists,max_length_username])
-    email = StringField('email', validators=[DataRequired(), user_exists, is_valid,max_length])
+    email = StringField('email', validators=[DataRequired(), user_exists, is_valid,max_length,min_length_password])
     password = StringField('password', validators=[DataRequired(),max_length_password])

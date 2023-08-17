@@ -1,3 +1,15 @@
+h3 {
+    font-family: Poppins,Open Sans,sans-serif;
+}
+
+#fontsizegamenamesinglegamepage {
+    font-size: 27px;
+}
+
+#innerdivstarsreviewssinglegamepage {
+    display: flex;
+}
+
 #maindivsinglegamepage {
     display: flex;
 }
@@ -6,26 +18,143 @@
     display: none;
 }
 
+#innerdivgmaepricesinglegame {
+    font-family: Poppins,Open Sans,sans-serif;
+}
+
+#maindivreviewsforgap {
+    display: flex;
+    flex-direction: column;
+    gap: 11px
+}
+
+#outerdivgmaepricesinglegame {
+    margin-bottom: 27px;
+    margin-top: 10px;
+}
+
 #picofgamesinglegame {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
+#outerdivcreatereview {
+    background-color:  #ffffffd9;
+    margin-left: 103px;
+    margin-right: 103px;
+}
+
+#divtextabovereviewedit {
+    position: relative;
+    top: 53px;
+}
+
+#descriptiiontextsinglegamepage {
+    font-weight: 700;
+}
+
+#innerdivcreatereview {
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-bottom: 18px;
+}
+
+#divtextabovereviewinputbox {
+    position: relative;
+    margin-bottom: 45px;
+    padding-top: 12px;
+    font-weight: 700;
+}
+
 #innerdivholdpicofgamesinglegame {
-    width: 50vw;
+    /* width: 50vw; */
     height: 25vw;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+#divreviewstext {
+    font-weight: 700;
 }
 
 #outterdivsinglegamepage {
     display: flex;
+    gap: 51px;
 }
 
 #innerdivpriceadditembutton {
-
+    padding: 15px;
 }
 
 #outerrdivpriceadditembutton {
-    width: 25vw;
-    background-color: white;
+    /* width: 25vw; */
+    background-color:  #ffffffd9;
+}
+
+#noreviewssinglegamepage {
+    padding: 18px;
+}
+
+#innerdivusernamereviewsstars {
+    display: flex;
+    gap: 24px;
+}
+
+#divusernameformappedreview {
+    font-weight: 800;
+}
+
+#maindivavgstarsreviewsnumber {
+    display: flex;
+}
+
+#divreviewnumberandtext {
+    text-wrap: nowrap;
+}
+
+#singlegameavgstarsnexttomainpic {
+    display: flex;
+    /* justify-content: center; */
+    font-size: 16px;
+}
+
+#innermaindivgamedescriptionsinglegamepage {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+#outerdivallreviews {
+    background-color:  #ffffffd9;
+    padding: 18px;
+    margin-left: 103px;
+    margin-right: 103px;
+}
+
+#innerdivgamedescriptionsinglegamepage {
+    line-height: 1.3;
+}
+
+.outerdivsinglereviewmapped {
+    margin-top: 19px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.innerdivsinglereviewmapped {
+    line-height: 1.3;
+}
+
+#outerdivgamedescriptionsinglegamepage {
+    background-color: #ffffffd9;
+    padding: 12px;
+    margin-bottom: 11px;
+    margin-left: 103px;
+    margin-right: 103px;
+    margin-top: 25px;
 }

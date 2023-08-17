@@ -61,7 +61,7 @@ def edit_review(gameId):
         review.user_id = current_user.id
         review.game_id = gameId
         review.content = form.data['content']
-        review.stars = 0
+        review.stars = form.data['stars']
         db.session.commit()
         return review.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

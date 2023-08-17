@@ -6,19 +6,21 @@ import { thunkSingleGame } from '../../store/games'
 import { useParams } from 'react-router-dom'
 import { thunkEditQuantity, thunkGetCart } from '../../store/cart'
 import './cart.css'
+import CheckoutPopUp from '../CheckoutPopUp'
 
 function Cart() {
     const cart = useSelector(state => state.cart.cart)
     const history = useHistory()
     const dispatch = useDispatch()
-    const [quantity, setQuantity] = useState()
+    const [checkedOut, setCheckedOut] = useState(false)
     const [gameId, setGameId] = useState()
 
     let items = Object.values(cart)
-   
-    const onCheckout = async() => {
-        items.forEach(async(item) => {
+
+    const onCheckout = async () => {
+        items.forEach(async (item) => {
             await dispatch(thunkEditQuantity(0, item.game_id))
+            setCheckedOut(true)
         });
     }
 
@@ -26,40 +28,65 @@ function Cart() {
         let err = await dispatch(thunkGetCart())
     }, [])
 
-    if (!items || !cart || !items.length) {
-        return null
-    }
+    let totalPrice = items?.reduce((accum, item2) => {
+        return accum + (parseFloat(item2?.games?.price) * parseInt(item2?.quantity))
+    }, 0)
+
+    totalPrice = Number.parseFloat(totalPrice).toFixed(2)
+
+    // if (!items || !cart || !items.length) {
+    //     return null
+    // }
 
     return (
         <div id='maindivcartpositioning'>
             <div id='outerdivholdingcart'>
                 <div>
-                    <button
-                    onClick={async() => {
-                        await onCheckout()
-                    }}
-                    >Checkout</button>
+                    {checkedOut && <CheckoutPopUp setCheckedOut={setCheckedOut} />}
                 </div>
-                <div>
-                    {items ? (items?.map((item) => {
-                        return <div key={item?.id}>
+                <div id='outerdivallgamesincart'>
+                    {/* was using this below in additon    items && */}
+                    {items.length > 0 ? (items?.map((item, idx) => {
+                        return <>
+                        <div key={idx} className='innerdivcartgamename'>
+                            <div className='divimageincartofgame'>
+                                <img className='imageincartofgame' src={item.games.image} alt="small image of game" />
+                            </div>
+                            <div className='divholdinggamenameincart'>
                             {item?.games?.name}
-                            {item && item.games && <button
+                            </div>
+                            {item && item.games && <div> <button
+                            className='addorsubtractcartbutton'
                                 onClick={async () => {
                                     await dispatch(thunkEditQuantity(Number(item.quantity) + 1, item.game_id))
 
                                 }}
-                            >+</button>}
+                            >+</button> </div>}
                             {item?.quantity}
-                            {item && item.games && <button
+                            {item && item.games && <div> <button
+                            className='addorsubtractcartbutton'
                                 onClick={async () => {
                                     await dispatch(thunkEditQuantity(Number(item.quantity) - 1, item.game_id))
 
                                 }}
-                            >-</button>}
+                            >-</button> </div>}
                         </div>
+                        <hr />
+                        </>
                     })
-                    ) : '  '}
+                    ) : <div>Empty Cart</div>}
+                </div>
+                <div id='carttotalcheckoutbutton'>
+                    <div id='innerdivtotalprice'>
+                        Total: ${totalPrice}
+                    </div>
+                    <div>
+                        {items.length > 0 && <button
+                            onClick={async () => {
+                                await onCheckout()
+                            }}
+                        >Checkout</button>}
+                    </div>
                 </div>
             </div>
         </div>

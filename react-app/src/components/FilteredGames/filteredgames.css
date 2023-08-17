@@ -55,7 +55,6 @@
     left: 10px;
 }
 
-/* LIGHTER COLOR LESS TRASPARENT*/
 
 #innerdivlogogamenightcenterpagelandingpage {
     justify-content: center;
@@ -70,6 +69,7 @@
 
 .ptagnumberofreviews {
     margin-top: 0px;
+    text-wrap: nowrap;
 }
 
 #divforfiltersearchbarlandingpage {
@@ -124,6 +124,8 @@
 }
 
 #positionforlandingpage {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #logoforgamenightlandingpage {
@@ -147,4 +149,12 @@
 .outterdivcategorydownarrowfiltersearch {
     display: flex;
     position: relative;
+    cursor: pointer;
+}
+
+#outerdivcartsinglepagetrue {
+        position: absolute;
+        right: 80px;
+        top: 78px;
+        z-index: 2;
 }

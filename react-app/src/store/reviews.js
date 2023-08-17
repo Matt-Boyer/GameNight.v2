@@ -36,11 +36,11 @@ export const thunkSingleReview = (gameId) => async(dispatch) => {
     }
 }
 
-export const thunkPostReview = (content,gameId) => async (dispatch) => {
+export const thunkPostReview = (content,gameId,stars) => async (dispatch) => {
     const response = await fetch(`/api/reviews/new/${gameId}`, {
         method:'POST',
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({content})
+        body:JSON.stringify({content,stars})
     })
     if (response.ok)    {
         const review = await response.json()
@@ -68,11 +68,11 @@ export const thunkDeleteReview = (gameId) => async (dispatch) => {
             }
 }
 
-export const thunkEditReview = (content,gameId) => async (dispatch) => {
+export const thunkEditReview = (content,gameId,stars) => async (dispatch) => {
     const response = await fetch(`/api/reviews/edit/${gameId}`, {
         method:'PUT',
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({content})
+        body:JSON.stringify({content,stars})
     })
     if (response.ok)    {
         const review = await response.json()

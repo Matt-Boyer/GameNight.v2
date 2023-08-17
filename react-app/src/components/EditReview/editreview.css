@@ -1,0 +1,21 @@
+#editreviewbutton {
+    position: relative;
+    left: 10px;
+    top: -6px;
+}
+
+#outterdiveditstars {
+    position: absolute;
+    left: 0px;
+    top: -2px;
+    margin-bottom: 9px;
+}
+
+#deletereviewbutton {
+
+}
+
+#divforpositioningstarsrelative {
+    position: relative;
+    top: 0px;
+}

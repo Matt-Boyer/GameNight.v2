@@ -1,0 +1,7 @@
+.loginsignupnavbarbutton {
+    border: solid black 1px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    cursor: pointer;
+    padding: 12px;
+  }
