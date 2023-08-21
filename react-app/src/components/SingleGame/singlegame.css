@@ -13,6 +13,8 @@ h3 {
 #maindivsinglegamepage {
     display: flex;
     justify-content: center;
+    position: relative;
+    top: 0px;
 }
 
 #outerdivcartsinglepagefalse {
