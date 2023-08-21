@@ -1,24 +1,21 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { FilterCon } from '../../context/FilterContex'
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import logo from '../../Images/GAMENIGHTv2.png'
-import './Navigation.css';
-import { thunkSearchGameName } from '../../store/games';
+import './navigationlandingpage.css';
 
-function Navigation({ isLoaded }) {
+function NavigationLandingPage({ isLoaded }) {
 	const cart = useSelector(state => state.cart.cart)
 	const sessionUser = useSelector(state => state.session.user)
 	const { cartShown, setCartShown } = useContext(FilterCon)
 	const history = useHistory()
-	const dispatch = useDispatch()
 	let items = Object.values(cart)
 	const [itemsCart, setItemsCart] = useState()
-	const [searchByName, setSearchByName] = useState('')
 
 	let nums = items.reduce((accum, item) => {
 		return accum + parseInt(item.quantity)
@@ -28,33 +25,20 @@ function Navigation({ isLoaded }) {
         setItemsCart(nums)
     }, [nums])
 
-	const onSearchByName = async () => {
-        await dispatch(thunkSearchGameName(searchByName))
-        history.push('/games/filtered')
-    }
-
 	return (
 		<>
 			<div id='navbarmaindiv'>
 				<div id='innerdivforlogonavbar'>
 					<img id='logofornavbar' src={logo} onClick={() => history.push('/')} />
 				</div>
-				<div id='outterdivsearchbarforgamesnavbar'>
+				{/* <div id='outterdivsearchbarforgamesnavbar'>
                     <div id='innerdivsearchbarforgameslandingpage'>
-                        <input id='searchbarforgameslandingpage' type="text" placeholder='Search by game name'
-						onChange={(e) => {
-                            setSearchByName(e.target.value)
-                        }}
-						/>
-                        <div id='innerdivmagnifyingglasssearchbar'
-						onClick={() => {
-                            onSearchByName()
-                        }}
-						>
+                        <input id='searchbarforgameslandingpage' type="text" placeholder='Search by game name -- FEATURE COMING SOON' />
+                        <div id='innerdivmagnifyingglasssearchbar'>
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </div>
                     </div>
-                </div>
+                </div> */}
 				{isLoaded && (
 					sessionUser?.id ? <div id='divprofileshoppingcart'>
 						<div>
@@ -87,4 +71,4 @@ function Navigation({ isLoaded }) {
 	);
 }
 
-export default Navigation;
+export default NavigationLandingPage;

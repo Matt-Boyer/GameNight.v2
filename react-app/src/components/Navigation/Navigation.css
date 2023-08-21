@@ -13,6 +13,54 @@
   top: -24px;
 }
 
+#numberoncart {
+  position: relative;
+  top: -51px;
+  color: white;
+  right: -34px;
+  width: fit-content;
+}
+
+#outerdivsortbyfilteredgamespage {
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+}
+
+.innerdivsortbyfilteredgamespage {
+
+}
+
+.textsortby {
+  border: solid 1px;
+  border-radius: 26px;
+  padding: 6px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.rating {
+  border: solid 1px white;
+  border-radius: 26px;
+  padding: 6px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.reviews {
+  border: solid 1px white;
+  border-radius: 26px;
+  padding: 6px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+  background-color: white;
+}
+
 .profile-dropdown {
   position: absolute;
   right: 3px;

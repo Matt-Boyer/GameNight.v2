@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import { useEffect, useState, useRef, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { thunkFilteredGames } from '../../store/games'
+import { thunkSearchGameName, thunkFilteredGames } from '../../store/games'
 import logo from '../../Images/GAMENIGHTv2.png'
 import './landingpage.css'
 import { FilterCon } from '../../context/FilterContex'
@@ -28,9 +28,15 @@ function LandingPage() {
     const [minAge, setMinAge] = useState(false)
     const [maxPrice, setMaxPrice] = useState(false)
     const [confusedShown, setConfusedShown] = useState(false)
+    const [searchByName, setSearchByName] = useState('')
 
     const onSubmit = async () => {
         let err = await dispatch(thunkFilteredGames(category, method, minPlayerValue, maxPlayerValue, minAgeValue, maxPriceValue))
+        history.push('/games/filtered')
+    }
+
+    const onSearchByName = async () => {
+        await dispatch(thunkSearchGameName(searchByName))
         history.push('/games/filtered')
     }
 
@@ -43,8 +49,16 @@ function LandingPage() {
                 </div>
                 <div id='outterdivsearchbarforgames'>
                     <div id='innerdivsearchbarforgameslandingpage'>
-                        <input id='searchbarforgameslandingpage' type="text" placeholder='Search by game name -- FEATURE COMING SOON' />
-                        <div id='innerdivmagnifyingglasssearchbar'>
+                        <input id='searchbarforgameslandingpage' type="text" value={searchByName} placeholder='Search by game name'
+                        onChange={(e) => {
+                            setSearchByName(e.target.value)
+                        }}
+                        />
+                        <div id='innerdivmagnifyingglasssearchbar'
+                        onClick={() => {
+                            onSearchByName()
+                        }}
+                        >
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </div>
                     </div>
@@ -96,7 +110,7 @@ function LandingPage() {
                                         ></input>
                                     </div>
                                     <div>
-                                        <label htmlFor="Strategy">Strategy:</label>
+                                        <label htmlFor="Strategy">Strategy/Puzzles:</label>
                                         <input className='gapforinputfilter' value={4} name='Strategy' type='checkbox'
                                             onChange={() => {
                                                 if (category.indexOf(4) < 0) { setCategory((category) => [...category, 4]) }
@@ -483,6 +497,13 @@ function LandingPage() {
                 </div>
                 {confusedShown && <Confused setConfusedShown={setConfusedShown} />}
             </div>
+            {cartShown && <div id='divtomakecartdisappear'
+                onClick={() => {
+                    setCartShown(false)
+                }}
+                >
+
+                </div>}
         </div>
     )
 }

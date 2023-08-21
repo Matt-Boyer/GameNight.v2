@@ -186,6 +186,13 @@ function SingleGame() {
             <div id={cartShown ? 'outerdivcartsinglepagetrue' : 'outerdivcartsinglepagefalse'} >
                 {currUser === undefined ? null : <Cart />}
             </div>
+             {cartShown && <div id='divtomakecartdisappear'
+                onClick={() => {
+                    setCartShown(false)
+                }}
+                >
+
+                </div>}
         </div>
     )
 }

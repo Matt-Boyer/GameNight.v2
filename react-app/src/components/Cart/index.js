@@ -41,6 +41,13 @@ function Cart() {
     return (
         <div id='maindivcartpositioning'>
             <div id='outerdivholdingcart'>
+                {/* {checkedOut && <div id='divtomakecartdisappear'
+                onClick={() => {
+                    setCheckedOut(false)
+                }}
+                >
+
+                </div>} */}
                 <div>
                     {checkedOut && <CheckoutPopUp setCheckedOut={setCheckedOut} />}
                 </div>

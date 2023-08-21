@@ -47,7 +47,7 @@ function EditReview() {
 
     return (
         <div id='divforpositioningstarsrelative'>
-            <div id='deletereviewbutton'>
+            <div id='divfordeletereviewbutton'>
                 <DeleteReview />
             </div>
              <div id='outterdivpostionstarsreviewfor'>
@@ -56,7 +56,7 @@ function EditReview() {
                             {<StarRatingInput
                                 disabled={false}
                                 onChange={onChange}
-                                rating={stars}
+                                rating={stars?stars:review.stars}
                             />}
                         </label>
                     </div>

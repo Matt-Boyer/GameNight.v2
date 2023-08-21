@@ -11,6 +11,10 @@
     position: relative;
     left: 10px;
     top: -6px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    background-color: #fe1d65;
+    cursor: pointer;
 }
 
 #errorscreatingreview {

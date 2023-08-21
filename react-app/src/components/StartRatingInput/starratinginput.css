@@ -8,7 +8,8 @@
   .rating-input{
     display:flex;
     justify-content:center;
-    font-size:26px
+    font-size:26px;
+    cursor: pointer;
   }
 
   .filled {
