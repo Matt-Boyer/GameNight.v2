@@ -1,4 +1,4 @@
-from app.models import db, User, environment, SCHEMA, Method,Category,Games,Cart,Reviews
+from app.models import db, User, environment, SCHEMA, Method,Category,Games,Cart,Reviews,WishList
 from sqlalchemy.sql import text
 
 # PROBABLY NEED A JOIN TABLE FOR MANY TO MANY FOR METHOD/CATEGORY TO GAMES do they can have many categories and methods per game
@@ -63,6 +63,8 @@ def seed_users():
         user_id = 2,game_id=1,content='It did not fit in my DVD player. Do not recommend',stars=2)
     cart1 = Cart(
         user_id = 1,game_id=1,quantity=2)
+    wishlist1 = WishList(
+        user_id = 1,game_id=1)
 
 
     db.session.add(demo)
@@ -80,6 +82,8 @@ def seed_users():
     db.session.add(review2)
     db.session.commit()
     db.session.add(cart1)
+    db.session.commit()
+    db.session.add(wishlist1)
     db.session.commit()
 
 

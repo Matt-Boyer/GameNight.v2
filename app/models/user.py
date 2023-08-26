@@ -37,11 +37,19 @@ class User(db.Model, UserMixin):
         back_populates="users"
     )
 
+    wishlist = db.relationship(
+        "WishList",
+        cascade="all, delete-orphan",
+        back_populates="users"
+    )
+
+
     def to_dict(self):
         return {
             'id': self.id,
             'username': self.username,
             'email': self.email,
             'reviews': [review.to_dict() for review in self.reviews],
-            'cart': [cart.to_dict() for cart in self.cart]
+            'cart': [cart.to_dict() for cart in self.cart],
+            'wishlist': [wish.to_dict() for wish in self.wishlist]
         }

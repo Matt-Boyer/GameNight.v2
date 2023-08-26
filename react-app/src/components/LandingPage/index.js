@@ -41,6 +41,7 @@ function LandingPage() {
     }
 
     return (
+        <div id='neededanothermaindivforpositioningoffooter'>
         <div id='maindivlandingpageall'>
            <div id='positionforlandingpage'>
             <div>
@@ -52,6 +53,11 @@ function LandingPage() {
                         <input id='searchbarforgameslandingpage' type="text" value={searchByName} placeholder='Search by game name'
                         onChange={(e) => {
                             setSearchByName(e.target.value)
+                        }}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                onSearchByName()
+                            }
                         }}
                         />
                         <div id='innerdivmagnifyingglasssearchbar'
@@ -504,6 +510,22 @@ function LandingPage() {
                 >
 
                 </div>}
+        </div>
+        <div id='maindivfooterlandingpage'>
+            <div id='outerdivfooterlinks'>
+                <div className='innerdivslinksaboutfooter'>
+                    Created by Matthew Boyer
+                </div>
+                <div className='innerdivslinksaboutfooter'>
+                    <img id='linkedinicon' src="https://static-00.iconduck.com/assets.00/linkedin-icon-512x512-a7sf08js.png" alt="linkedinicon" />
+                    <a className='linksinaboutfooter' href='https://www.linkedin.com/in/matthew-boyer-90884924/' target='_blank'>LinkedIn</a>
+                </div>
+                <div className='innerdivslinksaboutfooter'>
+                    <img id='githubicon' src="https://static-00.iconduck.com/assets.00/github-icon-512x497-oppthre2.png" alt="linkedinicon" />
+                    <a className='linksinaboutfooter' href='https://github.com/Matt-Boyer' target='_blank'>GitHub</a>
+                </div>
+            </div>
+        </div>
         </div>
     )
 }

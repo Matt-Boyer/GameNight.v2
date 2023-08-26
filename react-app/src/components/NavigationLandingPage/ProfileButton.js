@@ -22,7 +22,7 @@ function ProfileButton({ user }) {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      if (!ulRef.current.contains(e.target)) {
+      if (!ulRef.current?.contains(e.target)) {
         setShowMenu(false);
       }
     };
@@ -50,7 +50,15 @@ function ProfileButton({ user }) {
         {user ? (
           <div id="innerdivprofiledropdown">
               <div>{user.username}</div>
+              <hr />
               <div>{user.email}</div>
+              <hr />
+              <div id="wishlistuserprofileicon"
+              onClick={() => {
+                history.push('/wishlist')
+              }}
+              >Wish List</div>
+              <hr />
               <div id="innerdivlogoutprofiledropdown">
                 <div id="logoutbuttonprofiledropdown" onClick={handleLogout}>Log Out</div>
               </div>

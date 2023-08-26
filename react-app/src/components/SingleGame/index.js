@@ -9,6 +9,7 @@ import './singlegame.css'
 import Cart from '../Cart'
 import EditReview from '../EditReview'
 import StarRatingInput from '../StartRatingInput'
+import WishList from '../WishList'
 
 function SingleGame() {
     const game = useSelector(state => state.games.singleGame)
@@ -88,6 +89,9 @@ function SingleGame() {
                                 </div>
                                 <div>
                                     {currUser === undefined ? '' : <AddItemCart />}
+                                </div>
+                                <div id='wishlistdivholdingcomponent'>
+                                    <WishList gameId={gameId}/>
                                 </div>
                             </div>
                         </div>

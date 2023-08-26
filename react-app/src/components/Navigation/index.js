@@ -45,6 +45,11 @@ function Navigation({ isLoaded }) {
 						onChange={(e) => {
                             setSearchByName(e.target.value)
                         }}
+						onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                onSearchByName()
+                            }
+                        }}
 						/>
                         <div id='innerdivmagnifyingglasssearchbar'
 						onClick={() => {

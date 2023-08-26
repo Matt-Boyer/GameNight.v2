@@ -26,6 +26,12 @@ class Games(db.Model, UserMixin):
         back_populates="games"
     )
 
+    wishlist = db.relationship(
+        "WishList",
+        cascade="all, delete-orphan",
+        back_populates="games"
+    )
+
     cart = db.relationship(
         "Cart",
         cascade="all, delete-orphan",

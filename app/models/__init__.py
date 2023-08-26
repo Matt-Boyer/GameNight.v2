@@ -6,3 +6,4 @@ from .category import Category
 from .games import Games
 from .method import Method
 from .reviews import Reviews
+from .wishlist import WishList

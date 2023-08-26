@@ -1,0 +1,14 @@
+#wishlistheader {
+    text-align: center;
+    font-size: 42px;
+    margin-top: 10px;
+}
+
+#divholdingdeletewishlistcomponent {
+
+}
+
+#positioningforremovewishlistbutton {
+    position: relative;
+    top: 0px;
+}

@@ -12,6 +12,35 @@
     padding: 13px;
 }
 
+#outerdivbuttonsgamequantity {
+    display: flex;
+    gap: 6px;
+}
+
+.fa-trash-can {
+    cursor: pointer;
+}
+
+#divfortrashcancart {
+    align-self: center;
+}
+
+#subtotalouterdiv {
+    margin-inline-start: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#buttonsquantityofgame {
+    display: flex;
+    flex-direction: column;
+}
+
+#checkoutbuttondivcart {
+    cursor: pointer;
+}
+
 #divtomakecartdisappear {
     position: fixed;
     top: 0;
@@ -29,7 +58,7 @@
 .innerdivcartgamename {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 34px;
 }
 
 .imageincartofgame {
@@ -38,7 +67,9 @@
 }
 
 .divholdinggamenameincart {
-    margin-left: auto;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
 }
 
 #outerdivallgamesincart {
@@ -47,6 +78,7 @@
 
 .addorsubtractcartbutton {
     height: fit-content;
+    cursor: pointer;
 }
 
 .divimageincartofgame {

@@ -10,6 +10,7 @@ from .api.auth_routes import auth_routes
 from .api.games_routes import games_routes
 from .api.reviews_routes import reviews_routes
 from .api.cart_routes import cart_routes
+from .api.wishlist_routes import wishlist_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -29,6 +30,7 @@ def load_user(id):
 app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
+app.register_blueprint(wishlist_routes, url_prefix='/api/wishlist')
 app.register_blueprint(cart_routes, url_prefix='/api/cart')
 app.register_blueprint(reviews_routes, url_prefix='/api/reviews')
 app.register_blueprint(games_routes, url_prefix='/api/games')

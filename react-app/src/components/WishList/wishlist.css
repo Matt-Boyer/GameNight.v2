@@ -1,0 +1,26 @@
+#innerdivwishlistbutton {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0);
+    background-color: #c21dfeed;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+}
+
+#innerdivwishlistbutton:hover {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    background-color: #9e1dcded;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+}
+
+#innerdivwishlistbuttonalreadyin {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    background-color: #c21dfe30;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+}

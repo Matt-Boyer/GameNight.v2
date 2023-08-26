@@ -15,6 +15,8 @@ import Cart from "./components/Cart";
 import AddItemCart from "./components/AddItemCart";
 import ScrollToTop from "./components/ScrollToTop";
 import NavigationLandingPage from "./components/NavigationLandingPage";
+import WishList from "./components/WishList";
+import WishListPage from "./components/WishListPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +46,10 @@ function App() {
           <Route exact path="/editreview/:gameId" >
           <Navigation isLoaded={isLoaded} />
             <EditReview/>
+          </Route>
+          <Route exact path="/wishlist" >
+          <Navigation isLoaded={isLoaded} />
+            <WishListPage/>
           </Route>
           <Route exact path="/reviewform/:gameId" >
           <Navigation isLoaded={isLoaded} />

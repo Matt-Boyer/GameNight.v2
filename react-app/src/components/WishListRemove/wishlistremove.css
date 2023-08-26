@@ -1,0 +1,33 @@
+#removefromwishlistbutton {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0);
+    background-color: #fe1d65;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    bottom: 16px;
+    z-index: 99;
+    width: 192px;
+    left: 39px;
+}
+
+#removefromwishlistbutton:hover {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    background-color: #fe1d65;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    bottom: 16px;
+    z-index: 99;
+    width: 192px;
+    left: 39px;
+}
+
+/* #removefromwishlistbutton {
+    position: absolute;
+    top: 0px;
+    z-index: 99;
+} */
