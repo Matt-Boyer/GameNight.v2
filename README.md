@@ -8,4 +8,4 @@ https://game-night-63q9.onrender.com
 
 ## Landing Page / Search Feature
 
-![landingpagescrenshot](/images/Screenshot 2023-08-30 at 3.56.08 PM.png)
+![landingpagescrenshot](/images/Screenshot1.png)
