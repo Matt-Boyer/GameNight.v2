@@ -9,3 +9,18 @@ https://game-night-63q9.onrender.com
 ## Landing Page / Search Feature
 
 ![landingpagescrenshot](/images/Screenshot1.png)
+
+
+## Single Game / Reviews 
+
+![landingpagescrenshot](/images/Screenshot2.png)
+
+## LinkedIn
+
+https://www.linkedin.com/in/matt-boyer-90884924/
+
+## Future Features
+
+### Google Maps API
+
+Users can find closest store or online place they can purchase the game
