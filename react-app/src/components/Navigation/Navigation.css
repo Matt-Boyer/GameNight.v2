@@ -94,6 +94,12 @@
   cursor: pointer;
 }
 
+#innerdivlogoutprofiledropdown:hover {
+  background: rgb(116, 116, 116);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 #logoutbuttonprofiledropdown {
   padding: 5px;
   text-align: center;

@@ -5,3 +5,11 @@
     cursor: pointer;
     padding: 12px;
   }
+
+.loginsignupnavbarbutton:hover {
+  border: solid black 1px;
+  border-radius: 10px;
+  background-color: rgb(196, 204, 212);
+  cursor: pointer;
+  padding: 12px;
+}

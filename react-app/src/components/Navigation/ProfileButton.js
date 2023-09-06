@@ -53,11 +53,18 @@ function ProfileButton({ user }) {
               <hr />
               <div>{user.email}</div>
               <hr />
+              <div className="innerdivfriendprofilewishlist">
               <div id="wishlistuserprofileicon"
               onClick={() => {
                 history.push('/wishlist')
               }}
               >Wish List</div>
+              {/* <div id="wishlistuserprofileicon"
+              onClick={() => {
+                history.push('/friends')
+              }}
+              >Friends</div> */}
+              </div>
               <hr />
               <div id="innerdivlogoutprofiledropdown">
                 <div id="logoutbuttonprofiledropdown" onClick={handleLogout}>Log Out</div>

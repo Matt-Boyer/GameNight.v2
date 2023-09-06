@@ -1,0 +1,17 @@
+#submitbuttonlogin {
+    border: solid black 1px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    cursor: pointer;
+    padding: 12px;
+    margin-bottom: 11px;
+}
+
+#submitbuttonlogin:hover {
+    border: solid black 1px;
+    border-radius: 10px;
+    background-color: rgb(211, 217, 222);
+    cursor: pointer;
+    padding: 12px;
+    margin-bottom: 11px;
+}

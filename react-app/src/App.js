@@ -17,6 +17,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import NavigationLandingPage from "./components/NavigationLandingPage";
 import WishList from "./components/WishList";
 import WishListPage from "./components/WishListPage";
+import Friends from "./components/Friends";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,6 +51,10 @@ function App() {
           <Route exact path="/wishlist" >
           <Navigation isLoaded={isLoaded} />
             <WishListPage/>
+          </Route>
+          <Route exact path="/friends" >
+          <Navigation isLoaded={isLoaded} />
+            <Friends/>
           </Route>
           <Route exact path="/reviewform/:gameId" >
           <Navigation isLoaded={isLoaded} />

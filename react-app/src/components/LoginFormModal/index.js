@@ -22,17 +22,17 @@ function LoginFormModal() {
   };
 
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div id="innerdivsignuppage">
+      <h1 id="signuptextsignupmodal">Log In</h1>
+      <form id="formsignuppageinputs" onSubmit={handleSubmit}>
         <div>
           {/* {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))} */}
-          {errors.length > 0 && <p>Invalid Credentials</p>}
+          {errors.length > 0 && <p className="errorsforsignuppage">Invalid Credentials</p>}
         </div>
         <label>
-          Email
+          Email:
           <input
             type="text"
             value={email}
@@ -41,7 +41,7 @@ function LoginFormModal() {
           />
         </label>
         <label>
-          Password
+          Password:
           <input
             type="password"
             value={password}
@@ -49,17 +49,17 @@ function LoginFormModal() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <button id="submitbuttonlogin" type="submit">Log In</button>
       </form>
-      <div>
-					<button
+      <div id="innerdivsignupbutton">
+					<button id="submitbuttonsignup"
 						onClick={async () => {
 							await dispatch(login('demo@aa.io', 'password'));
 							closeModal()
 						}}
 					>Demo User</button>
 				</div>
-    </>
+    </div>
   );
 }
 

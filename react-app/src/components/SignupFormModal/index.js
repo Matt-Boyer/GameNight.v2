@@ -36,7 +36,6 @@ function SignupFormModal() {
 		<div id="outerdivsignuppage">
 			<div id="innerdivsignuppage">
 				<div>
-
 					<h1 id="signuptextsignupmodal">Sign Up</h1>
 				</div>
 				<form onSubmit={handleSubmit} id="formsignuppageinputs">
@@ -90,13 +89,13 @@ function SignupFormModal() {
 						</label>
 					</div>
 					<div>
-						<button type="submit">Sign Up</button>
+						<button id="submitbuttonsignup" type="submit">Sign Up</button>
 					</div>
 					<div>
 					</div>
 				</form>
-				<div>
-					<button
+				<div id="innerdivsignupbutton">
+					<button id="submitbuttonsignup"
 						onClick={async () => {
 							await dispatch(login('demo@aa.io', 'password'));
 							closeModal()

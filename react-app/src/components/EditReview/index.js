@@ -24,6 +24,7 @@ function EditReview() {
     }, [])
 
     const onSubmit = async() => {
+        console.log('------------------',stars)
         const err = await dispatch(thunkEditReview(content,gameId,stars))
         if (err?.errors?.length > 0) {
             setErrors(err.errors)
@@ -31,6 +32,12 @@ function EditReview() {
         await dispatch(thunkSingleGame(gameId))
         await dispatch(thunkGetCart())
     }
+
+    useEffect(async() => {
+        if (review.stars) {
+            setStars(review.stars? review.stars : '')
+        }
+    }, [review])
 
     const onChange = (number) => {
         setStars(number);
