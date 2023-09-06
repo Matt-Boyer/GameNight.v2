@@ -1,21 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { NavLink, useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import './wishlistpage.css';
+import { FilterCon } from '../../context/FilterContex'
 import { thunkAddWISHLIST, thunkGetWishList, thunkDeleteWishList } from "../../store/wishlist";
 import WishListRemove from "../WishListRemove";
+import Cart from '../Cart'
+import './wishlistpage.css';
 
 function WishListPage() {
     const history = useHistory()
     const dispatch = useDispatch();
+    const { cartShown, setCartShown } = useContext(FilterCon)
     const wishlist = useSelector(state => Object.values(state.wishlist.wishlist))
+    const currUser = useSelector(state => state.session.user?.id)
 
     useEffect(() => {
         dispatch(thunkGetWishList())
     }, [])
 
     return (
-        <div>
+        <div id="wishlistoutterdiv">
             <div id="wishlistheader">
                 WISH LIST
             </div>
@@ -75,6 +79,16 @@ function WishListPage() {
                     </div>
                 })}
             </div>
+                        <div id={cartShown ? 'outerdivcartsinglepagetrue' : 'outerdivcartsinglepagefalse'} >
+                            {currUser === undefined ? null : <Cart />}
+                        </div>
+                        {cartShown && <div id='divtomakecartdisappear'
+                            onClick={() => {
+                                setCartShown(false)
+                            }}
+                        >
+
+                        </div>}
         </div>
     );
 }

@@ -5,11 +5,11 @@ import { thunkSingleGame } from '../../store/games'
 import { FilterCon } from '../../context/FilterContex'
 import AddItemCart from '../AddItemCart'
 import ReviewForm from '../ReviewForm'
-import './singlegame.css'
 import Cart from '../Cart'
 import EditReview from '../EditReview'
 import StarRatingInput from '../StartRatingInput'
 import WishList from '../WishList'
+import './singlegame.css'
 
 function SingleGame() {
     const game = useSelector(state => state.games.singleGame)
