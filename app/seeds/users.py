@@ -8,9 +8,9 @@ def seed_users():
     demo = User(
         username='Demo', friends='2,3', email='demo@aa.io', password='password')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
+        username='Marnie', email='marnie@aa.io', password='password')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        username='Bobbie', email='bobbie@aa.io', password='password')
     method1 = Method(
         name='Computer')
     method2 = Method(
@@ -89,6 +89,118 @@ def seed_users():
         user_id = 1,game_id=1,content='This was fun',stars=5)
     review2 = Reviews(
         user_id = 2,game_id=1,content='It did not fit in my DVD player. Do not recommend',stars=2)
+    review3 = Reviews(
+        user_id = 3,game_id=1,content='One of my favorite games to play. I love the old school 1990s vibe',stars=5)
+    review4 = Reviews(
+        user_id=2, game_id=2, content="I can't stop playing this game! It's addictive and so much fun!", stars=5)
+
+    review5 = Reviews(
+        user_id=1, game_id=2, content="Not what I expected. The graphics are outdated.", stars=3)
+
+    review6 = Reviews(
+        user_id=1, game_id=3, content="Great storyline, but the controls are a bit clunky.", stars=4)
+
+    review7 = Reviews(
+        user_id=3, game_id=3, content="I bought this for my kids, and they love it! Keeps them entertained for hours.", stars=5)
+
+    review8 = Reviews(
+        user_id=2, game_id=3, content="The soundtrack in this game is amazing. It really sets the mood!", stars=5)
+
+    review9 = Reviews(
+        user_id=3, game_id=4, content="I expected more from this game. It's just average.", stars=3)
+
+    review10 = Reviews(
+        user_id=2, game_id=4, content="The game crashes frequently. Unplayable in its current state.", stars=1)
+
+    review11 = Reviews(
+        user_id=1, game_id=4, content="Brings back childhood memories. Love the retro feel.", stars=4)
+
+    review12 = Reviews(
+        user_id=2, game_id=5, content="I'm enjoying the game, but it could use more challenging levels.", stars=4)
+
+    review13 = Reviews(
+        user_id=3, game_id=5, content="It's a classic! Nostalgia overload.", stars=5)
+
+    review14 = Reviews(
+        user_id=1, game_id=5, content="The graphics are stunning, but the gameplay is a bit repetitive.", stars=4)
+
+    review15 = Reviews(
+        user_id=3, game_id=6, content="I expected better graphics for a modern game.", stars=2)
+
+    review16 = Reviews(
+        user_id=2, game_id=6, content="This game is a masterpiece! I can't get enough of it.", stars=5)
+
+    review17 = Reviews(
+        user_id=3, game_id=7, content="The puzzles in this game are mind-bending! Love the challenge.", stars=5)
+
+    review18 = Reviews(
+        user_id=2, game_id=7, content="Not my cup of tea. The gameplay is too slow for my liking.", stars=2)
+
+    review19 = Reviews(
+        user_id=1, game_id=7, content="The character development in this game is exceptional.", stars=4)
+
+    review20 = Reviews(
+        user_id=2, game_id=8, content="I'm impressed with the attention to detail in this game world.", stars=4)
+    review21 = Reviews(
+        user_id=1, game_id=8, content="A must-play for any gamer. The story is captivating.", stars=5)
+
+    review22 = Reviews(
+        user_id=3, game_id=8, content="The game graphics are top-notch, but the controls need improvement.", stars=4)
+
+    review23 = Reviews(
+        user_id=2, game_id=9, content="I can't believe how immersive this game is. It's like living in another world.", stars=5)
+
+    review24 = Reviews(
+        user_id=1, game_id=10, content="The game's open world is impressive, but the loading times are frustrating.", stars=3)
+
+    review25 = Reviews(
+        user_id=2, game_id=10, content="I appreciate the attention to historical accuracy in this game.", stars=4)
+
+    review26 = Reviews(
+        user_id=3, game_id=11, content="The in-game economy is unbalanced. It needs fixing.", stars=2)
+
+    review27 = Reviews(
+        user_id=1, game_id=11, content="I'm addicted to this game. It's all I want to play lately.", stars=5)
+
+    review28 = Reviews(
+        user_id=2, game_id=11, content="The game's puzzles are challenging, but that's what makes it great.", stars=5)
+
+    review29 = Reviews(
+        user_id=2, game_id=12, content="I expected more variety in the gameplay. It gets repetitive.", stars=3)
+
+    review30 = Reviews(
+        user_id=3, game_id=12, content="This game is a gem. It's a shame more people don't know about it.", stars=5)
+
+    review31 = Reviews(
+        user_id=1, game_id=13, content="The game's graphics are mind-blowing! A visual masterpiece.", stars=5)
+
+    review32 = Reviews(
+        user_id=2, game_id=14, content="I'm disappointed with the lack of multiplayer options.", stars=2)
+
+    review33 = Reviews(
+        user_id=1, game_id=14, content="The game's AI is impressive. It feels like you're playing against real opponents.", stars=4)
+
+    review34 = Reviews(
+        user_id=3, game_id=14, content="I bought this game on sale, and it was worth every penny.", stars=4)
+
+    review35 = Reviews(
+        user_id=3, game_id=15, content="The game's world-building is phenomenal. It's a work of art.", stars=5)
+
+    review36 = Reviews(
+        user_id=2, game_id=16, content="I encountered a lot of bugs and glitches. Needs better QA.", stars=2)
+
+    review37 = Reviews(
+        user_id=3, game_id=16, content="I can't stop recommending this game to my friends. It's that good.", stars=5)
+
+    review38 = Reviews(
+        user_id=2, game_id=17, content="The game's story is too short. I wanted more.", stars=3)
+
+    review39 = Reviews(
+        user_id=1, game_id=18, content="I love the in-game collectibles. They add depth to the gameplay.", stars=4)
+
+    review40 = Reviews(
+        user_id=1, game_id=19, content="I couldn't get into the game. It's not my cup of tea.", stars=1)
+
     cart1 = Cart(
         user_id = 1,game_id=1,quantity=2)
     wishlist1 = WishList(
@@ -105,9 +217,7 @@ def seed_users():
     db.session.commit()
     db.session.add_all([game1, game2,game3,game4,game5,game6,game7,game8,game9,game10,game11, game12,game13,game14,game15,game16,game17,game18,game19,game20,game21,game22])
     db.session.commit()
-    db.session.add(review1)
-    db.session.commit()
-    db.session.add(review2)
+    db.session.add_all([review1,review2,review3,review4,review5,review6,review7,review8,review9,review10,review11,review12,review13,review14,review15,review16,review17,review18,review19,review20,review21,review22,review23,review24,review25,review26,review27,review28,review29,review30,review31,review32,review33,review34,review35,review36,review37,review38,review39,review40])
     db.session.commit()
     db.session.add(cart1)
     db.session.commit()

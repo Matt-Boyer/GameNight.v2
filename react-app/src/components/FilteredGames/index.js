@@ -52,6 +52,9 @@ function FilteredGames() {
         if (selectedFilter === 'ratingltoh') {return sortedGamesRatingsLtoH}
         if (selectedFilter === 'reviewsltoh') {return sortedGamesReviewsLtoH}
     }
+    // const numStars = game.avg_stars
+    // const starWidth = (game.avg_stars%1)*100
+    // let width3 = `${starWidth}`
 
     return (
         <div id='maindivfilteredgames'>
@@ -85,31 +88,36 @@ function FilteredGames() {
                                 <h4 className='gamenameh4tag'>{game.name}</h4>
                             </div>
                             <div id="singlegameavgstarsnexttomainpic">
-                                <div
-                                    className={game.avg_stars >= 1 ? "filled" : "empty"}
-                                >
-                                    <i className="fa-sharp fa-solid fa-star"></i>
-                                </div>
-                                <div
-                                    className={game.avg_stars >= 2 ? "filled" : "empty"}
-                                >
-                                    <i className="fa-sharp fa-solid fa-star"></i>
-                                </div>
-                                <div
-                                    className={game.avg_stars >= 3 ? "filled" : "empty"}
-                                >
-                                    <i className="fa-sharp fa-solid fa-star"></i>
-                                </div>
-                                <div
-                                    className={game.avg_stars >= 4 ? "filled" : "empty"}
-                                >
-                                    <i className="fa-sharp fa-solid fa-star"></i>
-                                </div>
-                                <div
-                                    className={game.avg_stars >= 5 ? "filled" : "empty"}
-                                >
-                                    <i className="fa-sharp fa-solid fa-star"></i>
-                                </div>
+                            <div
+                                            className={game.avg_stars >= 1 ? "filled" : "empty"}
+                                        >
+                                            <i className="fa-sharp fa-solid fa-star"></i>
+                                            {game.avg_stars > 0 && game.avg_stars < 1 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${(game.avg_stars%1)*100}%`,color:'black',overflow:'hidden' }}></i> : ''}
+                                        </div>
+                                        <div
+                                            className={game.avg_stars >= 2 ? "filled" : "empty"}
+                                        >
+                                            <i className="fa-sharp fa-solid fa-star"></i>
+                                            {game.avg_stars > 1 && game.avg_stars < 2 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${(game.avg_stars%1)*100}%`,color:'black',overflow:'hidden' }}></i> : ''}
+                                        </div>
+                                        <div
+                                            className={game.avg_stars >= 3 ? "filled" : "empty"}
+                                        >
+                                            <i className="fa-sharp fa-solid fa-star"></i>
+                                            {game.avg_stars > 2 && game.avg_stars < 3 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${(game.avg_stars%1)*100}%`,color:'black',overflow:'hidden' }}></i> : ''}
+                                        </div>
+                                        <div
+                                            className={game.avg_stars >= 4 ? "filled" : "empty"}
+                                        >
+                                            <i className="fa-sharp fa-solid fa-star"></i>
+                                            {game.avg_stars > 3 && game.avg_stars < 4 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${(game.avg_stars%1)*100}%`,color:'black',overflow:'hidden' }}></i> : ''}
+                                        </div>
+                                        <div
+                                            className={game.avg_stars >= 5 ? "filled" : "empty"}
+                                        >
+                                            <i className="fa-sharp fa-solid fa-star"></i>
+                                            {game.avg_stars > 4 && game.avg_stars < 5 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${(game.avg_stars%1)*100}%`,color:'black',overflow:'hidden' }}></i> : ''}
+                                        </div>
                                 <div id='divreviewnumberandtext'>
                                     ({game.reviews.length}) {game.reviews.length === 1 ? 'review' : 'reviews'}
                                 </div>

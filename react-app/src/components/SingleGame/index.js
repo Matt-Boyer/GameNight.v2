@@ -35,6 +35,10 @@ function SingleGame() {
     })
     allreadyReviewed = Object.values(allreadyReviewed)
 
+    const numStars = game.avg_stars
+    const starWidth = (game.avg_stars%1)*100
+    let width3 = `${starWidth}`
+
     return (
         <div id='maindivsinglegamepage'>
             <div id='outterdivsinglegamepage'>
@@ -56,26 +60,31 @@ function SingleGame() {
                                             className={game.avg_stars >= 1 ? "filled" : "empty"}
                                         >
                                             <i className="fa-sharp fa-solid fa-star"></i>
+                                            {numStars > 0 && numStars < 1 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${width3}%`,color:'black',overflow:'hidden' }}></i> : ''}
                                         </div>
                                         <div
                                             className={game.avg_stars >= 2 ? "filled" : "empty"}
                                         >
                                             <i className="fa-sharp fa-solid fa-star"></i>
+                                            {numStars > 1 && numStars < 2 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${width3}%`,color:'black',overflow:'hidden' }}></i> : ''}
                                         </div>
                                         <div
                                             className={game.avg_stars >= 3 ? "filled" : "empty"}
                                         >
                                             <i className="fa-sharp fa-solid fa-star"></i>
+                                            {numStars > 2 && numStars < 3 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${width3}%`,color:'black',overflow:'hidden' }}></i> : ''}
                                         </div>
                                         <div
                                             className={game.avg_stars >= 4 ? "filled" : "empty"}
                                         >
                                             <i className="fa-sharp fa-solid fa-star"></i>
+                                            {numStars > 3 && numStars < 4 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${width3}%`,color:'black',overflow:'hidden' }}></i> : ''}
                                         </div>
                                         <div
                                             className={game.avg_stars >= 5 ? "filled" : "empty"}
                                         >
                                             <i className="fa-sharp fa-solid fa-star"></i>
+                                            {numStars > 4 && numStars < 5 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${width3}%`,color:'black',overflow:'hidden' }}></i> : ''}
                                         </div>
                                     </div>
                                     <div id='divreviewnumberandtext'>
@@ -84,6 +93,10 @@ function SingleGame() {
                                 </div>
                                 <div id='outerdivgmaepricesinglegame'>
                                     <div id='innerdivgmaepricesinglegame'>
+                                        {/* <div className='halfstartttt'>
+                                                <i className="fa-sharp fa-solid fa-star halfstar" ></i>
+                                                    <i className="fa-sharp fa-solid fa-star halfstar" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:'50%',color:'black',overflow:'hidden' }}></i>
+                                        </div> */}
                                         ${game.price}
                                     </div>
                                 </div>
@@ -91,7 +104,7 @@ function SingleGame() {
                                     {currUser === undefined ? '' : <AddItemCart />}
                                 </div>
                                 <div id='wishlistdivholdingcomponent'>
-                                    <WishList gameId={gameId}/>
+                                    <WishList gameId={gameId} />
                                 </div>
                             </div>
                         </div>
@@ -137,48 +150,48 @@ function SingleGame() {
                                         <div id='divreviewstext'>
                                             Reviews:
                                         </div>}
-                                        <hr />
+                                    <hr />
                                     {reviews.map((review) => {
-                                        return <>
-                                        <div key={review.id} className='outerdivsinglereviewmapped'>
-                                            <div id='innerdivusernamereviewsstars'>
-                                                <div id='divusernameformappedreview'>
-                                                    {review.username}
+                                        return <div key={review.id}>
+                                            <div key={review.id} className='outerdivsinglereviewmapped'>
+                                                <div id='innerdivusernamereviewsstars'>
+                                                    <div id='divusernameformappedreview'>
+                                                        {review.username}
+                                                    </div>
+                                                    <div id="singlegameavgstarsnexttomainpic">
+                                                        <div
+                                                            className={review.stars >= 1 ? "filled" : "empty"}
+                                                        >
+                                                            <i className="fa-sharp fa-solid fa-star"></i>
+                                                        </div>
+                                                        <div
+                                                            className={review.stars >= 2 ? "filled" : "empty"}
+                                                        >
+                                                            <i className="fa-sharp fa-solid fa-star"></i>
+                                                        </div>
+                                                        <div
+                                                            className={review.stars >= 3 ? "filled" : "empty"}
+                                                        >
+                                                            <i className="fa-sharp fa-solid fa-star"></i>
+                                                        </div>
+                                                        <div
+                                                            className={review.stars >= 4 ? "filled" : "empty"}
+                                                        >
+                                                            <i className="fa-sharp fa-solid fa-star"></i>
+                                                        </div>
+                                                        <div
+                                                            className={review.stars >= 5 ? "filled" : "empty"}
+                                                        >
+                                                            <i className="fa-sharp fa-solid fa-star"></i>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div id="singlegameavgstarsnexttomainpic">
-                                                    <div
-                                                        className={review.stars >= 1 ? "filled" : "empty"}
-                                                    >
-                                                        <i className="fa-sharp fa-solid fa-star"></i>
-                                                    </div>
-                                                    <div
-                                                        className={review.stars >= 2 ? "filled" : "empty"}
-                                                    >
-                                                        <i className="fa-sharp fa-solid fa-star"></i>
-                                                    </div>
-                                                    <div
-                                                        className={review.stars >= 3 ? "filled" : "empty"}
-                                                    >
-                                                        <i className="fa-sharp fa-solid fa-star"></i>
-                                                    </div>
-                                                    <div
-                                                        className={review.stars >= 4 ? "filled" : "empty"}
-                                                    >
-                                                        <i className="fa-sharp fa-solid fa-star"></i>
-                                                    </div>
-                                                    <div
-                                                        className={review.stars >= 5 ? "filled" : "empty"}
-                                                    >
-                                                        <i className="fa-sharp fa-solid fa-star"></i>
-                                                    </div>
+                                                <div className='innerdivsinglereviewmapped'>
+                                                    {review.content}
                                                 </div>
                                             </div>
-                                            <div className='innerdivsinglereviewmapped'>
-                                                {review.content}
-                                            </div>
+                                            <hr />
                                         </div>
-                                        <hr />
-                                        </>
                                     })}
                                 </div>
                             </div>
@@ -190,13 +203,13 @@ function SingleGame() {
             <div id={cartShown ? 'outerdivcartsinglepagetrue' : 'outerdivcartsinglepagefalse'} >
                 {currUser === undefined ? null : <Cart />}
             </div>
-             {cartShown && <div id='divtomakecartdisappear'
+            {cartShown && <div id='divtomakecartdisappear'
                 onClick={() => {
                     setCartShown(false)
                 }}
-                >
+            >
 
-                </div>}
+            </div>}
         </div>
     )
 }

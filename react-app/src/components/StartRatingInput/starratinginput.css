@@ -14,8 +14,33 @@
 
   .filled {
     color: black;
+    position: relative;
   }
 
 .empty {
   color: rgb(193, 189, 189);
+  position: relative;
 }
+
+/* .halfstartttt {
+  position: relative;
+  width: fit-content;
+}
+
+.halfstar {
+  display: inline-block;
+  position: relative;
+  font-size: 100px;
+  color: rgb(193, 189, 189);
+} */
+
+/* .halfstar:after {
+  font-family: FontAwesome;
+  content: "\f005";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30%;
+  overflow: hidden;
+  color: black;
+} */
