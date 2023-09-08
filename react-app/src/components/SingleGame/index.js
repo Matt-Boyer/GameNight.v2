@@ -36,7 +36,7 @@ function SingleGame() {
     allreadyReviewed = Object.values(allreadyReviewed)
 
     const numStars = game.avg_stars
-    const starWidth = (game.avg_stars%1)*100
+    const starWidth = (game.avg_stars % 1) * 100
     let width3 = `${starWidth}`
 
     return (
@@ -44,8 +44,8 @@ function SingleGame() {
             <div id='outterdivsinglegamepage'>
                 <div>
                     <div id='innerdivholdpicofgamesinglegame'>
-                        <div>
-                            <img id='picofgamesinglegame' src={game.image} alt="image of game" />
+                        <div id='innermostdivpicofsinglegame'>
+                                <img id='picofgamesinglegame' src={game.image} alt="image of game" />
                         </div>
                         <div id='outerrdivpriceadditembutton'>
                             <div id='innerdivpriceadditembutton'>
@@ -60,31 +60,31 @@ function SingleGame() {
                                             className={game.avg_stars >= 1 ? "filled" : "empty"}
                                         >
                                             <i className="fa-sharp fa-solid fa-star"></i>
-                                            {numStars > 0 && numStars < 1 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${width3}%`,color:'black',overflow:'hidden' }}></i> : ''}
+                                            {numStars > 0 && numStars < 1 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0, width: `${width3}%`, color: 'black', overflow: 'hidden' }}></i> : ''}
                                         </div>
                                         <div
                                             className={game.avg_stars >= 2 ? "filled" : "empty"}
                                         >
                                             <i className="fa-sharp fa-solid fa-star"></i>
-                                            {numStars > 1 && numStars < 2 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${width3}%`,color:'black',overflow:'hidden' }}></i> : ''}
+                                            {numStars > 1 && numStars < 2 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0, width: `${width3}%`, color: 'black', overflow: 'hidden' }}></i> : ''}
                                         </div>
                                         <div
                                             className={game.avg_stars >= 3 ? "filled" : "empty"}
                                         >
                                             <i className="fa-sharp fa-solid fa-star"></i>
-                                            {numStars > 2 && numStars < 3 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${width3}%`,color:'black',overflow:'hidden' }}></i> : ''}
+                                            {numStars > 2 && numStars < 3 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0, width: `${width3}%`, color: 'black', overflow: 'hidden' }}></i> : ''}
                                         </div>
                                         <div
                                             className={game.avg_stars >= 4 ? "filled" : "empty"}
                                         >
                                             <i className="fa-sharp fa-solid fa-star"></i>
-                                            {numStars > 3 && numStars < 4 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${width3}%`,color:'black',overflow:'hidden' }}></i> : ''}
+                                            {numStars > 3 && numStars < 4 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0, width: `${width3}%`, color: 'black', overflow: 'hidden' }}></i> : ''}
                                         </div>
                                         <div
                                             className={game.avg_stars >= 5 ? "filled" : "empty"}
                                         >
                                             <i className="fa-sharp fa-solid fa-star"></i>
-                                            {numStars > 4 && numStars < 5 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0,width:`${width3}%`,color:'black',overflow:'hidden' }}></i> : ''}
+                                            {numStars > 4 && numStars < 5 ? <i className="fa-sharp fa-solid fa-star" style={{ content: '\f005', position: 'absolute', left: 0, top: 0, width: `${width3}%`, color: 'black', overflow: 'hidden' }}></i> : ''}
                                         </div>
                                     </div>
                                     <div id='divreviewnumberandtext'>

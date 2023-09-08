@@ -1,7 +1,7 @@
 #textareaforcreatereview {
     max-width: 829px;
     height: 79px;
-    width: -webkit-fill-available;
+    width: 100%;
     resize: none;
     line-height: 1.3;
     padding: 5px;

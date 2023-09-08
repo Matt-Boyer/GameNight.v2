@@ -20,6 +20,10 @@ h3 {
     top: 0px;
 }
 
+#innermostdivpicofsinglegame {
+    height: 100%;
+}
+
 #wishlistdivholdingcomponent {
     /* margin-top: 26px; */
 }
