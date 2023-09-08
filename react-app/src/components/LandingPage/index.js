@@ -518,7 +518,7 @@ function LandingPage() {
                 </div>
                 <div className='innerdivslinksaboutfooter'>
                     <img id='linkedinicon' src="https://static-00.iconduck.com/assets.00/linkedin-icon-512x512-a7sf08js.png" alt="linkedinicon" />
-                    <a className='linksinaboutfooter' href='https://www.linkedin.com/in/matthew-boyer-90884924/' target='_blank'>LinkedIn</a>
+                    <a className='linksinaboutfooter' href='https://www.linkedin.com/in/matt-boyer-90884924/' target='_blank'>LinkedIn</a>
                 </div>
                 <div className='innerdivslinksaboutfooter'>
                     <img id='githubicon' src="https://static-00.iconduck.com/assets.00/github-icon-512x497-oppthre2.png" alt="linkedinicon" />
