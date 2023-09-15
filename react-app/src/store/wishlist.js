@@ -72,7 +72,6 @@ export default function reducer(state = initialState, action) {
             let newState = {...state, wishlist:{...state.wishlist}}
             newState.wishlist = {}
             action.data.forEach(ele => {
-                // console.log('---------------',ele.game_id)
                 newState.wishlist[ele.game_id]= ele
             });
             return newState
