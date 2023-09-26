@@ -59,6 +59,7 @@ function LoginFormModal() {
 						}}
 					>Demo User</button>
 				</div>
+        <a href="http://localhost:5001/api/auth/oauth_login"><button>OAUTH</button></a>
     </div>
   );
 }
