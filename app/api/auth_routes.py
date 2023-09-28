@@ -5,6 +5,7 @@ from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
 from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
+from google.oauth2 import id_token
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
 import os
@@ -16,6 +17,7 @@ auth_routes = Blueprint('auth', __name__)
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1" # to allow Http traffic for local dev
 
 GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_OAUTH_CLIENT_ID')
+GOOGLE_PASSWORD = os.environ.get('GOOGLE_PASSWORD')
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
 
 print("secret: ", client_secrets_file)
@@ -23,7 +25,7 @@ print("secret: ", client_secrets_file)
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
-    redirect_uri="http://localhost:5001/callback"
+    redirect_uri="http://localhost:5001/api/auth/callback"
 )
 
 def validation_errors_to_error_messages(validation_errors):
@@ -69,6 +71,7 @@ def logout():
     """
     Logs a user out
     """
+    session.clear()
     logout_user()
     return {'message': 'User logged out'}
 
@@ -102,7 +105,7 @@ def unauthorized():
 
 @auth_routes.route("/callback")
 def callback():
-    print('----------------------------------callback-----------------------------------------')
+    # print('----------------------------------callback-----------------------------------------')
     flow.fetch_token(authorization_response=request.url) # This method is sending the request depicted on line 6 of our flow chart! The response is depicted on line 7 of our flow chart.
     # I find it odd that the author of this code is verifying the 'state' AFTER requesting a token, but to each their own!!
 
@@ -129,13 +132,35 @@ def callback():
     # Note that depending on the way your app behaves, you may be creating a new user at this point...
     session["google_id"] = id_info.get("sub")
     session["name"] = id_info.get("name")
+    user123 = User.query.filter(User.email == id_info.get("email")).first()
+    if user123 == None:
+        form = SignUpForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
 
-    return redirect("/protected_area") # This will send the final redirect to our user's browser. As depicted in Line 8 of the flow chart!
+        user = User(
+            username=id_info.get("name"),
+            email=id_info.get("email"),
+            password=GOOGLE_PASSWORD
+        )
+        print('-------------------------',user.username,user.email,user.password)
+        db.session.add(user)
+        db.session.commit()
+        login_user(user)
+        return redirect("http://localhost:3000/")
+    form = LoginForm()
+    # Get the csrf_token from the request cookie and put it into the
+    # form manually to validate_on_submit can be used
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    # Add the user to the session, we are logged in!
+    user = User.query.filter(User.email == id_info.get("email")).first()
+    login_user(user)
+    return redirect("http://localhost:3000/") # This will send the final redirect to our user's browser. As depicted in Line 8 of the flow chart!
 
 @auth_routes.route("/oauth_login")
 def oauth_login():
     authorization_url, state = flow.authorization_url()
-    print('-------------------------------asdfg-------------------------asdg--------')
+    # print('-------------------------------asdfg-------------------------asdg--------')
     # print("AUTH URL: ", authorization_url) # I recommend that you print this value out to see what it's generating.
     # Ex: https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=NICE TRY&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fcallback&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&state=A0eZyFD4WH6AfqSj7XcdypQ0cMhwr9&access_type=offline
     # It SHOULD look a lot like the URL in the SECOND or THIRD line of our flow chart!
@@ -145,7 +170,7 @@ def oauth_login():
     # While implementation details are completely obscured by the method .authorization_url() let's note 2 things here.
     # 1) We ARE generating a random value for the 'state' variable. We save it to the session on the line below to compare later.
     # 2) The authorization URL
-    #print("STATE: ", state)
+    print("STATE: ", state)
     session["state"] = state
     return redirect(authorization_url) # This line technically will enact the SECOND and THIRD lines of our flow chart.
 
