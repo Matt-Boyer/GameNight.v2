@@ -110,7 +110,7 @@ def callback():
     # I find it odd that the author of this code is verifying the 'state' AFTER requesting a token, but to each their own!!
 
     # This is our CSRF protection for the Oauth Flow!
-    print('state ', session["state"], '   ---- request state  ', request.args["state"])
+    # print('state ', session["state"], '   ---- request state  ', request.args["state"])
     if not session["state"] == request.args["state"]:
         abort(500)  # State does not match!
 
