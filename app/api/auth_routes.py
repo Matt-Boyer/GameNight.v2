@@ -142,7 +142,6 @@ def callback():
             email=id_info.get("email"),
             password=GOOGLE_PASSWORD
         )
-        print('-------------------------',user.username,user.email,user.password)
         db.session.add(user)
         db.session.commit()
         login_user(user)
