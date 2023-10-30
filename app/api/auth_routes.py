@@ -25,7 +25,7 @@ print("secret: ", client_secrets_file)
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
-    redirect_uri="http://localhost:5001/api/auth/callback"
+    redirect_uri="https://game-night-63q9.onrender.com/api/auth/callback"
 )
 
 def validation_errors_to_error_messages(validation_errors):
@@ -145,7 +145,7 @@ def callback():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        return redirect("http://localhost:3000/")
+        return redirect("https://game-night-63q9.onrender.com/") #http://localhost:3000/ was this
     form = LoginForm()
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
@@ -154,7 +154,8 @@ def callback():
     # Add the user to the session, we are logged in!
     user = User.query.filter(User.email == id_info.get("email")).first()
     login_user(user)
-    return redirect("http://localhost:3000/") # This will send the final redirect to our user's browser. As depicted in Line 8 of the flow chart!
+    return redirect("https://game-night-63q9.onrender.com/") # This will send the final redirect to our user's browser. As depicted in Line 8 of the flow chart!
+    #http://localhost:3000/ was this
 
 @auth_routes.route("/oauth_login")
 def oauth_login():
@@ -169,6 +170,7 @@ def oauth_login():
     # While implementation details are completely obscured by the method .authorization_url() let's note 2 things here.
     # 1) We ARE generating a random value for the 'state' variable. We save it to the session on the line below to compare later.
     # 2) The authorization URL
+    print("authorizationurl: ", authorization_url)
     print("STATE: ", state)
     session["state"] = state
     return redirect(authorization_url) # This line technically will enact the SECOND and THIRD lines of our flow chart.
