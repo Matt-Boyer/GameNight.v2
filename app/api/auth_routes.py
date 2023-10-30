@@ -25,7 +25,7 @@ print("secret: ", client_secrets_file)
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
-    redirect_uri="https://game-night-63q9.onrender.com/api/auth/callback"
+    redirect_uri="http://localhost:5001/api/auth/callback"
 )
 
 def validation_errors_to_error_messages(validation_errors):
@@ -110,6 +110,7 @@ def callback():
     # I find it odd that the author of this code is verifying the 'state' AFTER requesting a token, but to each their own!!
 
     # This is our CSRF protection for the Oauth Flow!
+    print('state ', session["state"], '   ---- request state  ', request.args["state"])
     if not session["state"] == request.args["state"]:
         abort(500)  # State does not match!
 
@@ -145,7 +146,7 @@ def callback():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        return redirect("https://game-night-63q9.onrender.com/") #http://localhost:3000/ was this
+        return redirect("http://localhost:3000/") #http://localhost:3000/ was this
     form = LoginForm()
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
@@ -154,7 +155,7 @@ def callback():
     # Add the user to the session, we are logged in!
     user = User.query.filter(User.email == id_info.get("email")).first()
     login_user(user)
-    return redirect("https://game-night-63q9.onrender.com/") # This will send the final redirect to our user's browser. As depicted in Line 8 of the flow chart!
+    return redirect("http://localhost:3000/") # This will send the final redirect to our user's browser. As depicted in Line 8 of the flow chart!
     #http://localhost:3000/ was this
 
 @auth_routes.route("/oauth_login")
