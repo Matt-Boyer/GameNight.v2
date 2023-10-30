@@ -170,6 +170,7 @@ def oauth_login():
     # While implementation details are completely obscured by the method .authorization_url() let's note 2 things here.
     # 1) We ARE generating a random value for the 'state' variable. We save it to the session on the line below to compare later.
     # 2) The authorization URL
+    print('qewr')
     print("authorizationurl: ", authorization_url)
     print("STATE: ", state)
     session["state"] = state
