@@ -20,7 +20,7 @@ GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_OAUTH_CLIENT_ID')
 GOOGLE_PASSWORD = os.environ.get('GOOGLE_PASSWORD')
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
 
-print("secret: ", client_secrets_file)
+print("secret: testttttt", client_secrets_file)
 
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
@@ -105,7 +105,7 @@ def unauthorized():
 
 @auth_routes.route("/callback")
 def callback():
-    # print('----------------------------------callback-----------------------------------------')
+    print('----------------------------------callback-----------------------------------------')
     flow.fetch_token(authorization_response=request.url) # This method is sending the request depicted on line 6 of our flow chart! The response is depicted on line 7 of our flow chart.
     # I find it odd that the author of this code is verifying the 'state' AFTER requesting a token, but to each their own!!
 
