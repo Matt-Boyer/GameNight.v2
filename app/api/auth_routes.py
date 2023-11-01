@@ -25,7 +25,7 @@ print("secret: ", client_secrets_file)
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
-    redirect_uri="http://localhost:5001/callback"
+    redirect_uri="https://game-night-63q9.onrender.com/api/auth/callback"
 )
 
 def validation_errors_to_error_messages(validation_errors):
