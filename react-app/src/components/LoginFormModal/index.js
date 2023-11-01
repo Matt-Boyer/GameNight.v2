@@ -59,7 +59,9 @@ function LoginFormModal() {
 						}}
 					>Demo User</button>
 				</div>
-        <a href="https://game-night-63q9.onrender.com/api/auth/oauth_login"><button>OAUTH</button></a>
+        <div>
+          <a href="https://game-night-63q9.onrender.com/api/auth/oauth_login"><button id='googlebutton'><img id="googleiconbutton" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"></img> Continue with Google</button></a>
+        </div>
     </div>
   );
 }

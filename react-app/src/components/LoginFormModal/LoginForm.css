@@ -15,3 +15,30 @@
     padding: 12px;
     margin-bottom: 11px;
 }
+
+#googlebutton {
+    border-radius: 30px;
+    transition: all 250ms ease 0s;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    font-family: Nunito;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 800;
+    background: white;
+    color: rgb(38, 42, 74);
+    padding: 8px;
+    margin-top: 12px;
+}
+
+#googleiconbutton {
+    height: 20px;
+    margin-right: 8px;
+}
