@@ -103,7 +103,7 @@ function SignupFormModal() {
 					>Demo User</button>
 				</div>
 				<div>
-					<a href="https://game-night-63q9.onrender.com/api/auth/oauth_login"><button id='googlebutton'><img id="googleiconbutton" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"></img> Continue with Google</button></a>
+					<a href="https://game-night-63q9.onrender.com/api/auth/oauth_login"><button id='googlebutton'><img id="googleiconbutton" src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-pks9lbdv.png"></img> Continue with Google</button></a>
 				</div>
 			</div>
 		</div>
